@@ -10,18 +10,12 @@ import { StaticsModule } from './Components/Statics/statics.module';
 import { NextModule } from './Components/Next/next.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FHIRhubComponent } from './Components/Views/FHIRhub/fhir-hub/fhir-hub.component';
-import { FhirhubServicesComponent } from './Components/Views/FHIRhub/fhirhub-services/fhirhub-services.component';
-import { FhirhubTransactionComponent } from './Components/Views/FHIRhub/fhirhub-transaction/fhirhub-transaction.component';
-import { FhirhubConfigComponent } from './Components/Views/FHIRhub/fhirhub-config/fhirhub-config.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
-  FHIRhubComponent,
-  FhirhubServicesComponent,
-  FhirhubTransactionComponent,
-  FhirhubConfigComponent,
+    FHIRhubComponent,
 	],
 	imports: [
 		CommonModule,
