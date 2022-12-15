@@ -11,17 +11,10 @@ export class MenuComponent implements OnInit {
 	menuParents: MenuParentInterface[] = [{
 		items: [
 			{
-				label: "Allergies / Pathologies",
+				label: "FHIRhub",
 				icone: "",
-				url: "/allergies",
+				url: "/fhirhub",
 				htmlId: "",
-				partial: false
-			},
-			{
-				label: "Prescription",
-				icone: "",
-				htmlId: "",
-				url: "/prescription",
 				partial: false
 			}
 		]

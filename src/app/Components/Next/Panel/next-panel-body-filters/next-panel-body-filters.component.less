@@ -1,0 +1,32 @@
+@import '../../../../../assets/styles/next-mixins.less';
+
+.panel-body-filters {
+	.flex();
+	.flex-align-items-center();
+	.flex-justify-content-center();
+	padding: 5px;
+	line-height: 40px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	margin: 0;
+	background-color: var(--secondaryColorVeryLight);
+	border-top-color: var(--secondaryColorMedium);
+}
+
+.panel-body-filters:first-of-type {
+	border-top: 0;
+}
+
+.panel-body-filters ::ng-deep>* {
+	.flex-grow(1);
+	.flex-shrink(1);
+}
+
+:host ::ng-deep .row {
+	width: 100%;
+
+	.fill-width>div,
+	>div>* {
+		width: 100%;
+	}
+}

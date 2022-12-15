@@ -1,0 +1,40 @@
+@import '../../../../../assets/styles/next-mixins.less';
+
+:host {
+    .flex-basis(0);
+    .flex-grow(1);
+}
+
+.panel-heading {
+    background-color: var(--primaryColorLight);
+    .flex();
+    .flex-align-items-center();
+    .flex-justify-content-end();
+    padding: 5px;
+    color: #000;
+    border: 0 none;
+    border-radius: 0;
+    min-height: 40px;
+    padding: 0;
+    margin: 0;
+
+    .panel-title-text {
+        .flex-grow(1);
+        .flex-basis(0);
+        background-color: transparent;
+        font-size: medium;
+        margin: 0;
+        padding: 0 5px;
+        line-height: 40px;
+        font-family: inherit;
+        font-weight: 500;
+        color: inherit;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        margin-right: 20px;
+        font-size: 0.8rem;
+    }
+}

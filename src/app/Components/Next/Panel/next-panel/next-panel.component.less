@@ -1,0 +1,23 @@
+@import '../../../../../assets/styles/next-mixins.less';
+
+:host {
+    .flex-basis(0);
+    .flex-grow(1);
+}
+
+.panel {
+    border-radius: 0;
+    .box-sizing(border-box);
+    margin-bottom: 0;
+    border-width: 0;
+    border-style: solid;
+    .box-shadow(0px 2px 10px -2px #bebebe);
+    background-color: #fff;
+    border: 1px solid transparent;
+    .flex();
+    .flex-col();
+}
+
+.panel-primary {
+    border-color: var(--primaryColorLight);
+}
