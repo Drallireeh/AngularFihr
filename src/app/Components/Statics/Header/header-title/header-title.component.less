@@ -1,0 +1,57 @@
+@import "../../../../../assets/styles/next-mixins.less";
+
+:host {
+    .flex-grow(2);
+    .flex-basis-none();
+}
+
+.title {
+    .flex-basis-none();
+    overflow: hidden;
+    padding: 0 10px 0 10px;
+    background-color: var(--greyMediumDark);
+
+    .icon {
+        float: right;
+        width: 48px;
+        color: #fff;
+        font-size: 36px;
+        .flex-grow(0);
+        .flex-shrink(0);
+    }
+
+    h2 {
+        padding-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        height: 30px;
+        line-height: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        color: #fff;
+        margin: 0;
+        text-align: left;
+        font-family: inherit;
+    }
+
+    h3 {
+        font-size: 14px;
+        height: 30px;
+        line-height: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        color: #fff;
+        margin: 0;
+        text-align: left;
+        font-family: inherit;
+        font-weight: 500;
+    }
+}

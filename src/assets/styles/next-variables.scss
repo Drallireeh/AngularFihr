@@ -1,0 +1,108 @@
+// Variables globales
+
+:root {
+	// Variables de couleurs et leurs variantes
+	// Couleurs primaires du thème
+	--primaryColorDark: #4b88a3;
+	--primaryColorMediumDark: #219fc8;
+	--primaryColorMedium: #33b5e6;
+	--primaryColorMediumLight: #95bcfc;
+	--primaryColorLight: #b2e6f3;
+	--primaryColorVeryLight: #f1f4f9;
+
+	// Couleurs secondaires du thème
+	--secondaryColorDark: #de7d0c;
+	--secondaryColorMediumDark: #e38517;
+	--secondaryColorMedium: #ffb41d;
+	--secondaryColorLight: #ffcc65;
+	--secondaryColorVeryLight: #fff6e5;
+
+	// Rouge
+	--nextRed: #bd0926;
+	--nextRedMediumDark: screen(@nextRed, fade(@white, 10%));
+	--nextRedMedium: screen(@nextRed, fade(@white, 30%));
+	--nextRedMediumLight: screen(@nextRed, fade(@white, 50%));
+	--nextRedLight: screen(@nextRed, fade(@white, 70%));
+	--nextRedVeryLight: screen(@nextRed, fade(@white, 90%));
+
+	// Jaune
+	--nextYellowDark: #fccc00;
+	--nextYellow: #F1D600;
+	--nextYellowMediumDark: screen(@nextYellow, fade(@white, 10%));
+	--nextYellowMedium: screen(@nextYellow, fade(@white, 30%));
+	--nextYellowLight: #fff7d7;
+
+	// Orange
+	--nextOrange: #F0932D;
+	--nextOrangeMediumDark: screen(@nextOrange, fade(@white, 10%));
+	--nextOrangeMedium: screen(@nextOrange, fade(@white, 30%));
+	--nextOrangeMediumLight: screen(@nextOrange, fade(@white, 50%));
+	--nextOrangeLight: screen(@nextOrange, fade(@white, 70%));
+	--nextOrangeVeryLight: screen(@nextOrange, fade(@white, 90%));
+
+	// Bleu
+	--nextBlueDark: #1836c6;
+	--nextBlue: #0076B9;
+	--nextBlueMediumDark: screen(@nextBlue, fade(@white, 10%));
+	--nextBlueMedium: screen(@nextBlue, fade(@white, 30%));
+	--nextBlueLight: screen(@nextBlue, fade(@white, 30%));
+	--nextBlueVeryLight: #e8ecfc;
+
+	// Vert
+	--nextGreen: #088A08;
+	--nextGreenMediumDark: screen(@nextGreen, fade(@white, 10%));
+	--nextGreenMedium: screen(@nextGreen, fade(@white, 30%));
+	--nextGreenMediumLight: screen(@nextGreen, fade(@white, 50%));
+	--nextGreenLight: screen(@nextGreen, fade(@white, 70%));
+	--nextGreenVeryLight: screen(@nextGreen, fade(@white, 90%));
+
+	// Rose
+	--nextPink: #C50C7F;
+	--nextPinkMediumDark: screen(@nextPink, fade(@white, 10%));
+	--nextPinkMedium: screen(@nextPink, fade(@white, 30%));
+	--nextPinkLight: screen(@nextPink, fade(@white, 70%));
+	--nextPinkVeryLight: screen(@nextPink, fade(@white, 90%));
+
+	// Noir, gris, blanc
+	--black: #000;
+	--greyDark: #424242;
+	--greyMediumDark: #6e6e6e;
+	--greyMedium: #AAAAAA;
+	--greyMediumLight: #E6E6E6;
+	--greyLight: #F2F2F2;
+	--greyVeryLight: #FAFAFA;
+	--white: #fff;
+
+	// Taille d'écran
+	--screen-sm-min: 768px;
+	--screen-md-min: 992px;
+	--screen-lg-min: 1200px;
+
+	--base-url: "images";
+
+	/* Espace petit */
+	--spacingSmall: 5px;
+	/* Espace moyen */
+	--spacingMedium: 10px;
+	/* Espace large */
+	--spacingLarge: 20px;
+	/* Dimension pour espacer les blocs */
+	--globalSpacing: 16px;
+
+/* Largeur du menu sans l'indicateur pour l'élément actif */
+--menuWidth: 240px;
+/* Largeur des icônes du menu */
+--menuItemIconWidth: 40px;
+/* Hauteur des icônes du menu */
+--menuItemIconHeight: 40px;
+/* Marge droite pour les éléments de menu */
+--menuItemRightMargin: 3px;
+/* Largeur de l'indicateur pour l'élément actif */
+--menuItemActiveBorderWidth : 8px;
+/* Largeur du menu avec l'indicateur pour l'élément actif */
+--menuFullWidth: @menuWidth + @menuItemActiveBorderWidth;
+/* Largeur du menu croppé (réduit) sans l'indicateur pour l'élément actif */
+--menuCroppedWidth: @menuItemIconWidth + @menuItemRightMargin;
+/* Largeur du menu croppé (réduit) avec l'indicateur pour l'élément actif */
+--menuCroppedFullWidth: @menuCroppedWidth + @menuItemActiveBorderWidth;
+}
