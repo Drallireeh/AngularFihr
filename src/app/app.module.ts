@@ -8,11 +8,13 @@ import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { StaticsModule } from './Components/Statics/statics.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FHIRhubComponent } from './Components/Views/FHIRhub/fhir-hub/fhir-hub.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
+  FHIRhubComponent,
 	],
 	imports: [
 		CommonModule,
