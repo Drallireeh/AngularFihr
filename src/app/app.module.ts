@@ -9,20 +9,20 @@ import { AppComponent } from './app.component';
 import { StaticsModule } from './Components/Statics/statics.module';
 import { NextModule } from './Components/Next/next.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FHIRhubComponent } from './Components/Views/FHIRhub/fhir-hub/fhir-hub.component';
+import { ViewsModule } from './Components/Views/views.module';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
-    FHIRhubComponent,
 	],
 	imports: [
 		CommonModule,
 		BrowserModule,
 		AppRoutingModule,
 		StaticsModule,
-    NextModule,
+    	NextModule,
+		ViewsModule,
 		BrowserAnimationsModule,
 		FontAwesomeModule,
 	],
