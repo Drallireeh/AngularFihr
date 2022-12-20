@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
 import { NextPanelModule } from './Panel/next-panel/next-panel.module';
 import { NextOngletsModule } from './OngletsStatic/next-onglets/next-onglets.module';
+import { NextListeModule } from './Liste/next-liste/next-liste.module';
 
 @NgModule({
-	declarations: [
-
-	],
+	declarations: [],
 	imports: [
 		CommonModule,
 		FontAwesomeModule,
@@ -15,6 +14,7 @@ import { NextOngletsModule } from './OngletsStatic/next-onglets/next-onglets.mod
 	exports: [
 		NextPanelModule,
 		NextOngletsModule,
+		NextListeModule
 	]
 })
 export class NextModule { }
