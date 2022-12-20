@@ -14,13 +14,17 @@
 </section>
 <section>
     <table>
-        <tr>
-            <th>Ressource</th>
-            <th>Documentation</th>
-        </tr>
-        <tr>
-            <td>test</td>
-            <td>test2</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Ressource</th>
+                <th>Documentation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listServices; let i = index">
+                <td><a [href]="item.lien">{{ item.name }}</a></td>
+                <td>{{ item.label }}</td>
+            </tr>
+        </tbody>
     </table>
 </section>

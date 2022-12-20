@@ -1,6 +1,6 @@
 import { FhirServiceInterface } from "../Interfaces/FhirHub/fhirService-interface";
 
-export const ALLERGIES: FhirServiceInterface[] = [
+export const FHIRService: FhirServiceInterface[] = [
     {
         name: "AllergyIntolerance",
         label: "Accès aux allergies intolérances",
