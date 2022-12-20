@@ -1,0 +1,38 @@
+.ctn {
+	border-bottom: 1px solid lightgrey;
+
+	p {
+		margin: 0;
+	}
+
+	.info-secondaire {
+		color: #AAAAAA;
+		font-size: 12px;
+	}
+
+	.code {
+		background-color: darkgrey;
+		color: white;
+		padding: 5px;
+		text-align: center;
+		width: 50px;
+		cursor: default;
+		text-decoration: none;
+	}
+
+	>.content-ctn {
+		padding: 0 10px;
+		-webkit-box-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+
+		>div:nth-of-type(1)>p {
+			overflow: hidden;
+			-o-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+		}
+	}
+}
