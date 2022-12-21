@@ -13,18 +13,10 @@
     <p>Nous faison parfois référence Find-1-Code. Ce site permet la meilleure compréhension de certains codes exploités dans les différentes références de base.</p>
 </section>
 <section>
-    <table>
-        <thead>
-            <tr>
-                <th>Ressource</th>
-                <th>Documentation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of listServices; let i = index">
-                <td><a [href]="item.lien">{{ item.name }}</a></td>
-                <td>{{ item.label }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <app-next-liste>
+        <app-next-ligne *ngFor="let item of listServices; let i = index" class="row">
+            <p class="col-md-3"><a [href]="item.lien">{{ item.name }}</a></p>
+            <p class="col-md-9">{{ item.label }}</p>
+        </app-next-ligne>
+    </app-next-liste>
 </section>
