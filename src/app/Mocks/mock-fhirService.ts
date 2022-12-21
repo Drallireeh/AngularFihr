@@ -8,7 +8,7 @@ export const FHIRService: FhirServiceInterface[] = [
     },
     {
         name: "AuditEvent",
-        label: "Accès aux évènements d'audit",
+        label: "Accès aux évènements <a href='http://www.google.com'> d'audit</a>",
         lien: "http://www.google.fr",
     },
     {

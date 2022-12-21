@@ -16,7 +16,7 @@
     <app-next-liste>
         <app-next-ligne *ngFor="let item of listServices; let i = index" class="row">
             <p class="col-md-3"><a [href]="item.lien">{{ item.name }}</a></p>
-            <p class="col-md-9">{{ item.label }}</p>
+            <p class="col-md-9" [innerHTML]="item.label"></p>
         </app-next-ligne>
     </app-next-liste>
 </section>
