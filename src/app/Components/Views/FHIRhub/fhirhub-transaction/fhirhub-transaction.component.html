@@ -1,1 +1,15 @@
-<p>fhirhub-transaction works!</p>
+<section>
+    <h1>LISTE DES TRANSACTIONS HL7</h1>
+    <p>
+        Les transactions visent à suivre les recommandations du <a href="http://www.google.com">Guide d'interopérabilité intra-hospitalier</a> (édition 2015).
+    </p>
+</section>
+<section>
+    <app-next-liste>
+        <app-next-ligne *ngFor="let item of listTransactions; let i = index" class="row">
+            <p class="col-md-8">{{ item.name }}</p>
+            <p class="col-md-2"><a [href]="item.messageLien">{{ item.message }}</a></p>
+            <p class="col-md-2"><a [href]="item.profilLien">{{ item.profil }}</a></p>
+        </app-next-ligne>
+    </app-next-liste>
+</section>

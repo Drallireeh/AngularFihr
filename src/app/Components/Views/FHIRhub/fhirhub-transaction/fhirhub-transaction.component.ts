@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FhirTransactionInterface } from 'src/app/Interfaces/FhirHub/fhirTransaction-interface';
+import { FhirTransactionService } from 'src/app/Services/FHIRhub-transaction/fhir-transaction.service';
 
 @Component({
   selector: 'app-fhirhub-transaction',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fhirhub-transaction.component.less']
 })
 export class FhirhubTransactionComponent implements OnInit {
+ 
+  // Liste des datas
+	listTransactions!: FhirTransactionInterface[];
 
-  constructor() { }
+  constructor(private FhirTransactionData: FhirTransactionService) { }
 
   ngOnInit(): void {
+    this.getFhirService();
   }
 
+  getFhirService(): void {
+		this.FhirTransactionData.getFHIRTransaction().subscribe(transactions => this.listTransactions = transactions);
+	}
 }
