@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FhirConfigInterface } from 'src/app/Interfaces/FhirHub/fhirConfig-interface';
+import { FhirConfigService } from 'src/app/Services/FHIRhub-config/fhir-config.service';
 
 @Component({
   selector: 'app-fhirhub-config',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FhirhubConfigComponent implements OnInit {
 
-  constructor() { }
+  // Liste des datas
+	listConfig!: FhirConfigInterface[];
+
+  constructor(private FhirConfigData: FhirConfigService) { }
 
   ngOnInit(): void {
+    this.getFhirService();
   }
+
+  getFhirService(): void {
+		this.FhirConfigData.getFHIRConfig().subscribe(configs => this.listConfig = configs);
+	}
 
 }

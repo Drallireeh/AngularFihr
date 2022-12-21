@@ -1,20 +1,10 @@
-<app-next-liste>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-    <app-next-ligne><p>oui</p></app-next-ligne>
-</app-next-liste>
+<section>
+    <h1>LISTE DES ETABLISSEMENTS</h1>
+</section>
+<section>
+    <app-next-liste>
+        <app-next-ligne *ngFor="let item of listConfig; let i = index" class="row">
+            <p class="col-md-12"><a [href]="item.lien">{{ item.name }}</a></p>
+        </app-next-ligne>
+    </app-next-liste>
+</section>
