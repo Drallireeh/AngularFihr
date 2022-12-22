@@ -8,10 +8,21 @@ import { FHIRConfig } from 'src/app/Mocks/mock-fhirConfig';
 })
 export class FhirConfigService {
 
+  config!: any;
+  configList: FhirConfigInterface[] = FHIRConfig;
+
   constructor() { }
 
   getFHIRConfig(): Observable<FhirConfigInterface[]> {
 		const FHIRConfigData = of(FHIRConfig);
 		return FHIRConfigData;
+	}
+
+	getOneFHIRConfig(id: number): Observable<FhirConfigInterface> {
+		for (let i = 0; i < FHIRConfig.length; i++) {
+			let allergieFound = FHIRConfig.find((allergie: { id: number; }) => allergie.id === id);
+			if (allergieFound) return of(allergieFound);
+		}
+		return of();
 	}
 }

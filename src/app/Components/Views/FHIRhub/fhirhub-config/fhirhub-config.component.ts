@@ -11,15 +11,27 @@ export class FhirhubConfigComponent implements OnInit {
 
   // Liste des datas
 	listConfig!: FhirConfigInterface[];
+  oneConfig!: FhirConfigInterface;
+
+  // Liste des booléens d'affichage
+  base: boolean = true;
+  endpoint: boolean = false;
+
+  // Endpoint title
+  endpointTitle: string = "";
 
   constructor(private FhirConfigData: FhirConfigService) { }
 
   ngOnInit(): void {
-    this.getFhirService();
+    this.getFhirConfig();
   }
 
-  getFhirService(): void {
+  getFhirConfig(): void {
 		this.FhirConfigData.getFHIRConfig().subscribe(configs => this.listConfig = configs);
 	}
+
+  getOneFhirConfig(id: number): void {
+    this.FhirConfigData.getOneFHIRConfig(id).subscribe(config => this.oneConfig = config);
+  }
 
 }
