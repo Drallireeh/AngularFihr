@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { FhirConfigInterface } from 'src/app/Interfaces/FhirHub/fhirConfig-interface';
 import { FhirConfigService } from 'src/app/Services/FHIRhub-config/fhir-config.service';
 
@@ -7,7 +7,7 @@ import { FhirConfigService } from 'src/app/Services/FHIRhub-config/fhir-config.s
   templateUrl: './fhirhub-config.component.html',
   styleUrls: ['./fhirhub-config.component.less']
 })
-export class FhirhubConfigComponent implements OnInit {
+export class FhirhubConfigComponent implements OnInit, OnChanges {
 
   // Liste des datas
 	listConfig!: FhirConfigInterface[];
@@ -21,10 +21,21 @@ export class FhirhubConfigComponent implements OnInit {
   // Endpoint title
   endpointTitle: string = "";
 
+  @Input() data!:string
+  @Input() dataTab!: string;
+
   constructor(private FhirConfigData: FhirConfigService) { }
 
   ngOnInit(): void {
     this.getFhirConfig();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    let change: SimpleChange = changes['dataTab']; 
+
+      this.base = true;
+    this.endpoint = false;
+    this.configuration = false;
   }
 
   getFhirConfig(): void {
@@ -45,6 +56,10 @@ export class FhirhubConfigComponent implements OnInit {
     this.base = false;
     this.endpoint = false;
     this.configuration = true;
+  }
+
+  updateAllergieEvent(): void {
+    console.log('oui')
   }
 
 }

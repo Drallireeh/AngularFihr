@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fhirhub',
@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class FHIRhubComponent implements OnInit {
 
   config:boolean = false;
-
+  tabActive!:string
+;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   changeTab(tab: any): void {
+    this.tabActive = tab;
     if(tab == "Config"){
       this.config = true;
     }
