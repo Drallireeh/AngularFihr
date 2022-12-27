@@ -29,12 +29,16 @@ export class FhirhubConfigComponent implements OnInit {
 
   getFhirConfig(): void {
 		this.FhirConfigData.getFHIRConfig().subscribe(configs => this.listConfig = configs);
+    this.base = true;
+    this.endpoint = false;
+    this.configuration = false;
 	}
 
   getOneFhirConfig(id: number): void {
     this.FhirConfigData.getOneFHIRConfig(id).subscribe(config => this.oneConfig = config);
     this.base = false;
-    this.endpoint = true
+    this.endpoint = true;
+    this.configuration = false;
   }
 
   getOneFhirEndpoint(id: number): void {

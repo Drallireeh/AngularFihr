@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FHIRhubComponent implements OnInit {
 
+  config:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeTab(tab: any): void {
+    if(tab == "Config"){
+      this.config = true;
+    }
+    else {
+      this.config = false;
+    }
+  }
 }

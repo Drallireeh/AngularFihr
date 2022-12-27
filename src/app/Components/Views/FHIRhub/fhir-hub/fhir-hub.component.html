@@ -1,7 +1,10 @@
 <app-next-panel idString="FHIRhubID" panelTitle="FHIR Hub">
-FHIRhub works
-
-<app-next-onglets slot="panel-body">
+    <app-next-panel-actions slot="panel-heading">
+		<button *ngIf="config" id="btnSave" class="btn">
+            <span class="next-icon next-icon-ajout"></span>Enregistrer
+        </button>
+	</app-next-panel-actions>
+<app-next-onglets slot="panel-body" (tabSelected)="changeTab($event)">
     <app-next-onglets-content tabTitle="Services">
         <app-fhirhub-services></app-fhirhub-services>
     </app-next-onglets-content>
