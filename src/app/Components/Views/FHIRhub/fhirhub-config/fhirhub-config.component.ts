@@ -16,6 +16,7 @@ export class FhirhubConfigComponent implements OnInit {
   // Liste des booléens d'affichage
   base: boolean = true;
   endpoint: boolean = false;
+  configuration: boolean = false;
 
   // Endpoint title
   endpointTitle: string = "";
@@ -32,6 +33,14 @@ export class FhirhubConfigComponent implements OnInit {
 
   getOneFhirConfig(id: number): void {
     this.FhirConfigData.getOneFHIRConfig(id).subscribe(config => this.oneConfig = config);
+    this.base = false;
+    this.endpoint = true
+  }
+
+  getOneFhirEndpoint(id: number): void {
+    this.base = false;
+    this.endpoint = false;
+    this.configuration = true;
   }
 
 }

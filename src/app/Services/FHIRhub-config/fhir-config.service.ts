@@ -20,8 +20,16 @@ export class FhirConfigService {
 
 	getOneFHIRConfig(id: number): Observable<FhirConfigInterface> {
 		for (let i = 0; i < FHIRConfig.length; i++) {
-			let allergieFound = FHIRConfig.find((allergie: { id: number; }) => allergie.id === id);
-			if (allergieFound) return of(allergieFound);
+			let FHIRConfigFound = FHIRConfig.find((FHIRConfig: { id: number; }) => FHIRConfig.id === id);
+			if (FHIRConfigFound) return of(FHIRConfigFound);
+		}
+		return of();
+	}
+
+	getOneFHIREndpoint(id: number): Observable<FhirConfigInterface> {
+		for (let i = 0; i < FHIRConfig.length; i++) {
+			let FHIREndpointFound = FHIRConfig.find((FHIREndpoint: { id: number; }) => FHIREndpoint.id === id);
+			if (FHIREndpointFound) return of(FHIREndpointFound);
 		}
 		return of();
 	}

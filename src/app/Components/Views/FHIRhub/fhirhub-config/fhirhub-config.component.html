@@ -1,16 +1,28 @@
-<section *ngIf="base">
+<section *ngIf="base" id="base">
     <h1>LISTE DES ETABLISSEMENTS</h1>
     <app-next-liste>
         <app-next-ligne *ngFor="let item of listConfig; let i = index" class="row">
-            <p class="col-md-12"><a [href]="item.lien">{{ item.name }}</a></p>
+            <p class="col-md-12" (click)="getOneFhirConfig(i)">{{ item.name }}</p>
         </app-next-ligne>
     </app-next-liste>
 </section>
-<section *ngIf="endpoint">
-    <h1>LISTE DES ENDPOINTS ({{ endpointTitle }})</h1>
+<section *ngIf="endpoint" id="endpoint">
+    <h1>LISTE DES ENDPOINTS ({{ oneConfig.name }})</h1>
     <app-next-liste>
-        <app-next-ligne *ngFor="let item of listConfig; let i = index" class="row">
-            <p class="col-md-12"><a [href]="item.lien">{{ item.name }}</a></p>
+        <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index">
+            <p class="row" (click)="getOneFhirEndpoint(i)">
+                <span class="col-md-4">{{ item.name }}</span>
+                <span class="col-md-8"><a [href]="item.lien">{{ item.label }}</a></span>
+            </p>
+        </app-next-ligne>
+    </app-next-liste>
+</section>
+<section *ngIf="configuration" id="configuration">
+    <h1>Configuration commune DMP/MSS ({{ oneConfig.name }})</h1>
+    <app-next-liste>
+        <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
+            <p class="col-md-4">{{ oneConfig.endpoints[i].nameEtab }}</p>
+            <p class="col-md-8"><input type="text" [value]="oneConfig.endpoints[i].labelEtab"></p>
         </app-next-ligne>
     </app-next-liste>
 </section>
