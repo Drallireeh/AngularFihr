@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FHIRhubComponent implements OnInit {
 
   config:boolean = false;
-  tabActive!:string
-;
+  tabActive!:string;
+  
   constructor() { }
 
   ngOnInit(): void {

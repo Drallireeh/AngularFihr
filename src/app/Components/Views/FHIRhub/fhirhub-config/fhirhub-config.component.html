@@ -21,8 +21,53 @@
     <h1>Configuration commune DMP/MSS ({{ oneConfig.name }})</h1>
     <app-next-liste>
         <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
-            <p class="col-md-4">{{ oneConfig.endpoints[i].nameEtab }}</p>
+            <p class="col-md-4" (click)="getOneFhirConfigForm(0)">{{ oneConfig.endpoints[i].nameEtab }}</p>
             <p class="col-md-8"><input type="text" [value]="oneConfig.endpoints[i].labelEtab"></p>
         </app-next-ligne>
     </app-next-liste>
+</section>
+<section *ngIf="form" id="formConfig">
+    <h1>Configuration MSS ({{ oneConfig.name }})</h1>
+    <form action="">
+        <div>
+            <label for="">OID</label>
+            <input type="text" [value]="formConfig.oid">
+        </div>
+        <div>
+            <label for="">Adresse du Endpoint</label>
+            <input type="text" [value]="formConfig.adresse">
+        </div>
+        <div>
+            <label for="">Ficher Readme</label>
+            <input type="text" [value]="formConfig.readme">
+        </div>
+        <div>
+            <label for="">Fichier Index</label>
+            <input type="text" [value]="formConfig.index">
+        </div>
+        <div>
+            <label for="">Boîtes mail</label>
+            <input type="text" [value]="formConfig.mails">
+        </div>
+        <div>
+            <label for="">Nom de l'auteur des messages</label>
+            <input type="text" [value]="formConfig.auteur">
+        </div>
+        <div>
+            <label for="">Mail de l'auteur des messages</label>
+            <input type="text" [value]="formConfig.mail">
+        </div>
+        <div>
+            <label for="">Emetteur (GED)</label>
+            <input type="text" [value]="formConfig.emetteur">
+        </div>
+        <div>
+            <label for="">Le certificat est présent, les données ne seront modifiées que si elles sont renseignées, Certificat</label>
+            <input type="file">
+        </div>
+        <div>
+            <label for="">Mot de passe</label>
+            <input type="text" [value]="formConfig.mdp">
+        </div>
+    </form>
 </section>
