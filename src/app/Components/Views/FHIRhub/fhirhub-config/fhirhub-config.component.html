@@ -21,8 +21,8 @@
     <h1>Configuration commune DMP/MSS ({{ oneConfig.name }})</h1>
     <app-next-liste>
         <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
-            <p class="col-md-4" (click)="getOneFhirConfigForm(0)">{{ oneConfig.endpoints[i].nameEtab }}</p>
-            <p class="col-md-8"><input type="text" [value]="oneConfig.endpoints[i].labelEtab"></p>
+            <p class="col-md-4" (click)="getOneFhirConfigForm(i)">{{ oneConfig.endpoints[i].nameEtab }}</p>
+            <p class="col-md-8" (click)="getOneFhirConfigForm2(i)"><input type="text" [value]="oneConfig.endpoints[i].labelEtab"></p>
         </app-next-ligne>
     </app-next-liste>
 </section>
@@ -68,6 +68,51 @@
         <div>
             <label for="">Mot de passe</label>
             <input type="text" [value]="formConfig.mdp">
+        </div>
+    </form>
+</section>
+<section *ngIf="form2" id="formConfig2">
+    <h1>Configuration DMP ({{ oneConfig.name }})</h1>
+    <form action="">
+        <div>
+            <label for="">Adresse du endpoint</label>
+            <input type="text" [value]="formConfig2.adresseEndpoint">
+        </div>
+        <div>
+            <label for="">Adresse du Endpoint DMP</label>
+            <input type="text" [value]="formConfig2.adresseEndpointDMP">
+        </div>
+        <div>
+            <label for="">Adresse du Endpoint MSS</label>
+            <input type="text" [value]="formConfig2.adresseEndpointMSS">
+        </div>
+        <div>
+            <label for="">OID racine DMP</label>
+            <input type="text" [value]="formConfig2.OIDRacineDMP">
+        </div>
+        <div>
+            <label for="">Gestion des mineurs</label>
+            <input type="text" [value]="formConfig2.gestion">
+        </div>
+        <div>
+            <label for="">Age de la majorité</label>
+            <input type="text" [value]="formConfig2.age">
+        </div>
+        <div>
+            <label for="">Age minimal pour la connexion secrète</label>
+            <input type="text" [value]="formConfig2.ageMini">
+        </div>
+        <div>
+            <label for="">Réévaluation de la connexion secrète</label>
+            <input type="text" [value]="formConfig2.reevaluation">
+        </div>
+        <div>
+            <label for="">Confidentialité</label>
+            <input type="text" [value]="formConfig2.confidentialite">
+        </div>
+        <div>
+            <label for="">Automatisation</label>
+            <input type="text" [value]="formConfig2.automatisation">
         </div>
     </form>
 </section>

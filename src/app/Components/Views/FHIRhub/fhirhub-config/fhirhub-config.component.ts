@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { FhirConfigInterface } from 'src/app/Interfaces/FhirHub/fhirConfig-interface';
 import { FhirConfigFormInterface } from 'src/app/Interfaces/FhirHub/fhirConfigForm-interface';
+import { FhirConfigForm2Interface } from 'src/app/Interfaces/FhirHub/fhirCongifForm2-interface';
 import { FhirConfigService } from 'src/app/Services/FHIRhub-config/fhir-config.service';
 
 @Component({
@@ -14,12 +15,14 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
 	listConfig!: FhirConfigInterface[];
   oneConfig!: FhirConfigInterface;
   formConfig!: FhirConfigFormInterface;
+  formConfig2!: FhirConfigForm2Interface;
 
   // Liste des booléens d'affichage
   base: boolean = true;
   endpoint: boolean = false;
   configuration: boolean = false;
   form: boolean = false;
+  form2: boolean = false;
 
   // Endpoint title
   endpointTitle: string = "";
@@ -40,6 +43,7 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.endpoint = false;
     this.configuration = false;
     this.form = false;
+    this.form2 = false;
   }
 
   getFhirConfig(): void {
@@ -48,6 +52,7 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.endpoint = false;
     this.configuration = false;
     this.form = false;
+    this.form2 = false;
 	}
 
   getOneFhirConfig(id: number): void {
@@ -56,6 +61,7 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.endpoint = true;
     this.configuration = false;
     this.form = false;
+    this.form2 = false;
   }
 
   getOneFhirEndpoint(id: number): void {
@@ -63,6 +69,7 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.endpoint = false;
     this.configuration = true;
     this.form = false;
+    this.form2 = false;
   }
 
   getOneFhirConfigForm(id:number): void {
@@ -71,9 +78,15 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.endpoint = false;
     this.configuration = false;
     this.form = true;
+    this.form2 = false;
   }
 
-  updateAllergieEvent(): void {
-    console.log('oui')
+  getOneFhirConfigForm2(id:number): void {
+    this.FhirConfigData.getOneFHIRConfigForm2(id).subscribe(config => this.formConfig2 = config);
+    this.base = false;
+    this.endpoint = false;
+    this.configuration = false;
+    this.form = false;
+    this.form2 = true;
   }
 }
