@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
 import { FhirConfigInterface } from 'src/app/Interfaces/FhirHub/fhirConfig-interface';
 import { FhirConfigFormInterface } from 'src/app/Interfaces/FhirHub/fhirConfigForm-interface';
 import { FhirConfigForm2Interface } from 'src/app/Interfaces/FhirHub/fhirCongifForm2-interface';
@@ -23,6 +23,8 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
   configuration: boolean = false;
   form: boolean = false;
   form2: boolean = false;
+
+  @Output() showBtnSuppr = new EventEmitter();
 
   // Endpoint title
   endpointTitle: string = "";
@@ -79,6 +81,7 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.configuration = false;
     this.form = true;
     this.form2 = false;
+    this.showBtnSuppr.emit();
   }
 
   getOneFhirConfigForm2(id:number): void {
@@ -88,5 +91,6 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.configuration = false;
     this.form = false;
     this.form2 = true;
+    this.showBtnSuppr.emit();
   }
 }

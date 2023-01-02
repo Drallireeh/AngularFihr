@@ -9,5 +9,7 @@ export interface FhirConfigForm2Interface {
     ageMini: number,
     reevaluation: number,
     confidentialite: string[],
-    automatisation: string[]
+    confidentialiteLabel: string[],
+    automatisation: string[],
+    automatisationLabel: string[]
 }

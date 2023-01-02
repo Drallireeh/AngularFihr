@@ -3,6 +3,9 @@
 		<button *ngIf="config" id="btnSave" class="btn">
             <span class="next-icon next-icon-ajout"></span>Enregistrer
         </button>
+        <button *ngIf="configForm" id="btnDelete" class="btn">
+            <span class="next-icon next-icon-ajout"></span>Supprimer
+        </button>
 	</app-next-panel-actions>
 <app-next-onglets slot="panel-body" (tabSelected)="changeTab($event)">
     <app-next-onglets-content tabTitle="Services">
@@ -12,7 +15,7 @@
         <app-fhirhub-transaction></app-fhirhub-transaction>
     </app-next-onglets-content>
     <app-next-onglets-content tabTitle="Config">
-        <app-fhirhub-config [dataTab]="tabActive"></app-fhirhub-config>
+        <app-fhirhub-config [dataTab]="tabActive" (showBtnSuppr)="showBtnSuppr()"></app-fhirhub-config>
     </app-next-onglets-content>
 </app-next-onglets>
 </app-next-panel>
