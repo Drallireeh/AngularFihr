@@ -2,7 +2,5 @@
     <app-next-panel-heading title={{panelTitle}} [return]="return">
         <ng-content select="[slot=panel-heading]"></ng-content>
     </app-next-panel-heading>
-    <app-next-panel-body>
-        <ng-content select="[slot=panel-body]"></ng-content>
-    </app-next-panel-body>
+    <ng-content select="[slot=panel-body]"></ng-content>
 </div>
