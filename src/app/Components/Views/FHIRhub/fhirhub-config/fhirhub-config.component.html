@@ -1,10 +1,11 @@
 <section *ngIf="base" id="base">
     <h1>LISTE DES ETABLISSEMENTS</h1>
-    <app-next-liste>
-        <app-next-ligne *ngFor="let item of listConfig; let i = index" class="row">
-            <p class="col-md-12" (click)="getOneFhirConfig(i)">{{ item.name }}</p>
-        </app-next-ligne>
-    </app-next-liste>
+    <div>
+        <div *ngFor="let item of listConfig; let i = index" (click)="getOneFhirConfig(i)">
+            <p>{{ item.name }}</p>
+            <fa-icon class="next-icon" [icon]="faHospital"></fa-icon>
+        </div>
+    </div>
 </section>
 <section *ngIf="endpoint" id="endpoint">
     <h1>LISTE DES ENDPOINTS ({{ oneConfig.name }})</h1>

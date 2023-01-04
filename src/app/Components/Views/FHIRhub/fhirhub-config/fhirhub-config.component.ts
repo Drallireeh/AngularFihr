@@ -3,6 +3,7 @@ import { FhirConfigInterface } from 'src/app/Interfaces/FhirHub/fhirConfig-inter
 import { FhirConfigFormInterface } from 'src/app/Interfaces/FhirHub/fhirConfigForm-interface';
 import { FhirConfigForm2Interface } from 'src/app/Interfaces/FhirHub/fhirCongifForm2-interface';
 import { FhirConfigService } from 'src/app/Services/FHIRhub-config/fhir-config.service';
+import { faHospital } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-fhirhub-config',
@@ -23,6 +24,8 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
   configuration: boolean = false;
   form: boolean = false;
   form2: boolean = false;
+
+  faHospital = faHospital;
 
   @Output() showBtnSuppr = new EventEmitter();
 
