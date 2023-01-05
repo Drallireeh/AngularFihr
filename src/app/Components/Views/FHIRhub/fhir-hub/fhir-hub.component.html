@@ -1,4 +1,4 @@
-<app-next-panel idString="FHIRhubID" panelTitle="FHIR Hub">
+<app-next-panel idString="FHIRhubID" [panelTitle]="FHIRTitle">
     <app-next-panel-actions slot="panel-heading">
 		<button *ngIf="config" id="btnSave" class="btn">
             <span class="next-icon next-icon-ajout"></span>Enregistrer

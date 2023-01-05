@@ -10,6 +10,8 @@ export class FHIRhubComponent implements OnInit {
   config:boolean = false;
   configForm:boolean = false;
   tabActive!:string;
+
+  FHIRTitle:string = "LISTE DES SERVEURS FHIR REST"
   
   constructor() { }
 
@@ -24,6 +26,15 @@ export class FHIRhubComponent implements OnInit {
     }
     else {
       this.config = false;
+    }
+    if(tab == "Service"){
+      this.FHIRTitle = "LISTE DES SERVEURS FHIR REST"
+    }
+    else if(tab == "Config"){
+      this.FHIRTitle = "LISTE DES ETABLISSEMENTS"
+    }
+    else if(tab == "Transaction"){
+      this.FHIRTitle = "LISTE DES TRANSACTIONS HL7"
     }
   }
 

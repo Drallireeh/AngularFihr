@@ -1,5 +1,4 @@
 <section *ngIf="base" id="base">
-    <h1>LISTE DES ETABLISSEMENTS</h1>
     <div>
         <div *ngFor="let item of listConfig; let i = index" (click)="getOneFhirConfig(i)">
             <p>{{ item.name }}</p>
