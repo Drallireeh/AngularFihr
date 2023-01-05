@@ -14,7 +14,6 @@ h1 {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
             margin: 10px;
             width: 150px;
             height: 150px;
@@ -22,25 +21,101 @@ h1 {
 
             p{
                 margin: 0;
+                text-align: center;
             }
 
+            > div {
+                flex-grow: 2;
+                display: flex;
+                align-items: center;
+                fa-icon {
+                    font-size: 3rem;
+                    color: grey;
+                }
+            }
+        }
+        .red {
+            border-color: darkred!important;
             fa-icon {
-                font-size: 3rem;
-                color: grey;
+                color: darkred!important;
+            }
+        }
+        .blue {
+            border-color: skyblue!important;
+            fa-icon {
+                color: skyblue!important;
+            }
+        }
+        .green {
+            border-color: lightgreen!important;
+            fa-icon {
+                color: lightgreen!important;
+            }
+        }
+        .yellow {
+            border-color: yellow!important;
+            fa-icon {
+                color: yellow!important;
+            }
+        }
+        .pink {
+            border-color: pink!important;
+            fa-icon {
+                color: pink!important;
+            }
+        }
+        .violet {
+            border-color: violet!important;
+            fa-icon {
+                color: violet!important;
+            }
+        }
+        .grey {
+            border-color: lightgray!important;
+            fa-icon {
+                color: lightgray!important;
+            }
+        }
+        .brown {
+            border-color: brown!important;
+            fa-icon {
+                color: brown!important;
             }
         }
     }
 }
 
 #endpoint {
+    p {
+        margin: 0;
+        padding: 4px 0;
+        display: flex;
+        align-items: center;
+    }
+}
+
+#configuration {
     p{
         margin: 0;
         padding: 4px 0;
+        display: flex;
+        align-items: center;
     }
 }
 
 #formConfig {
-    background-color: red;
+    form {
+        padding: 10px;
+        > div {
+            display: flex;
+            margin: 5px 0;
+            align-items: center;
+
+            input[type="file"]{
+                border: none;
+            }
+        }
+    }
 }
 
 #formConfig2 {

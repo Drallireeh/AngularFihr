@@ -1,15 +1,16 @@
 <section *ngIf="base" id="base">
     <div>
-        <div *ngFor="let item of listConfig; let i = index" (click)="getOneFhirConfig(i)">
+        <div *ngFor="let item of listConfig; let i = index" (click)="getOneFhirConfig(i)" [class]="item.color">
             <p>{{ item.name }}</p>
-            <fa-icon class="next-icon" [icon]="faHospital"></fa-icon>
+            <div>
+                <fa-icon class="next-icon" [icon]="faHospital"></fa-icon>
+            </div>
         </div>
     </div>
 </section>
 <section *ngIf="endpoint" id="endpoint">
-    <h1>LISTE DES ENDPOINTS ({{ oneConfig.name }})</h1>
     <app-next-liste>
-        <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index">
+        <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
             <p class="row" (click)="getOneFhirEndpoint(i)">
                 <span class="col-md-4">{{ item.name }}</span>
                 <span class="col-md-8"><a [href]="item.lien">{{ item.label }}</a></span>
@@ -18,7 +19,6 @@
     </app-next-liste>
 </section>
 <section *ngIf="configuration" id="configuration">
-    <h1>Configuration commune DMP/MSS ({{ oneConfig.name }})</h1>
     <app-next-liste>
         <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
             <p class="col-md-4" (click)="getOneFhirConfigForm(i)">{{ oneConfig.endpoints[i].nameEtab }}</p>
@@ -27,47 +27,48 @@
     </app-next-liste>
 </section>
 <section *ngIf="form" id="formConfig">
-    <h1>Configuration MSS ({{ oneConfig.name }})</h1>
     <form action="">
-        <div>
-            <label for="">OID</label>
-            <input type="text" [value]="formConfig.oid">
+        <div class="row">
+            <label class="col-md-2" for="">OID</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.oid">
         </div>
-        <div>
-            <label for="">Adresse du Endpoint</label>
-            <input type="text" [value]="formConfig.adresse">
+        <div class="row">
+            <label class="col-md-2" for="">Adresse du Endpoint</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.adresse">
         </div>
-        <div>
-            <label for="">Ficher Readme</label>
-            <input type="text" [value]="formConfig.readme">
+        <div class="row">
+            <label class="col-md-2" for="">Ficher Readme</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.readme">
         </div>
-        <div>
-            <label for="">Fichier Index</label>
-            <input type="text" [value]="formConfig.index">
+        <div class="row">
+            <label class="col-md-2" for="">Fichier Index</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.index">
         </div>
-        <div>
-            <label for="">Boîtes mail</label>
-            <input type="text" [value]="formConfig.mails">
+        <div class="row">
+            <label class="col-md-2" for="">Boîtes mail</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.mails">
         </div>
-        <div>
-            <label for="">Nom de l'auteur des messages</label>
-            <input type="text" [value]="formConfig.auteur">
+        <div class="row">
+            <label class="col-md-2" for="">Nom de l'auteur des messages</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.auteur">
         </div>
-        <div>
-            <label for="">Mail de l'auteur des messages</label>
-            <input type="text" [value]="formConfig.mail">
+        <div class="row">
+            <label class="col-md-2" for="">Mail de l'auteur des messages</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.mail">
         </div>
-        <div>
-            <label for="">Emetteur (GED)</label>
-            <input type="text" [value]="formConfig.emetteur">
+        <div class="row">
+            <label class="col-md-2" for="">Emetteur (GED)</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.emetteur">
         </div>
-        <div>
-            <label for="">Le certificat est présent, les données ne seront modifiées que si elles sont renseignées, Certificat</label>
-            <input type="file">
+        <div class="row">
+            <label class="col-md-2" for="">Le certificat est présent, les données ne seront modifiées que si elles sont renseignées, Certificat</label>
+            <div class="col-md-9 offset-md-1">
+                <input type="file">
+            </div>
         </div>
-        <div>
-            <label for="">Mot de passe</label>
-            <input type="text" [value]="formConfig.mdp">
+        <div class="row">
+            <label class="col-md-2" for="">Mot de passe</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.mdp">
         </div>
     </form>
 </section>

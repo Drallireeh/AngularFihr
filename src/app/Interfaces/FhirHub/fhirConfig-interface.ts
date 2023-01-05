@@ -4,5 +4,6 @@ export interface FhirConfigInterface {
     name: string,
     lien: string,
     id: number,
+    color: string,
     endpoints: FhirConfigEndpointInterface[]
 }

@@ -5,6 +5,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DU CHÊNE",
         lien: "http://www.google.com",
         id: 0,
+        color: "red",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',
@@ -44,6 +45,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DU PIN",
         lien: "http://www.google.com",
         id: 1,
+        color: "blue",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',
@@ -83,6 +85,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DU SEQUOIA",
         lien: "http://www.google.com",
         id: 2,
+        color: "pink",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',
@@ -122,6 +125,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DU CEDRE",
         lien: "http://www.google.com",
         id: 3,
+        color: "grey",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',
@@ -161,6 +165,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DE L'ERABLE",
         lien: "http://www.google.com",
         id: 4,
+        color: "green",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',
@@ -200,6 +205,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DE L'AULNE",
         lien: "http://www.google.com",
         id: 5,
+        color: "yellow",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',
@@ -239,6 +245,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DU BOULEAU",
         lien: "http://www.google.com",
         id: 6,
+        color: "violet",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',
@@ -278,6 +285,7 @@ export const FHIRConfig: FhirConfigInterface[] = [
         name: "CLINIQUE DU SAULE",
         lien: "http://www.google.com",
         id: 7,
+        color: "brown",
         endpoints: [{
             name: 'DMP/MSS',
             label: 'Configuration commune requise pour la MSS et le DMP',

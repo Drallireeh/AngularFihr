@@ -27,7 +27,7 @@ export class FHIRhubComponent implements OnInit {
     else {
       this.config = false;
     }
-    if(tab == "Service"){
+    if(tab == "Services"){
       this.FHIRTitle = "LISTE DES SERVEURS FHIR REST"
     }
     else if(tab == "Config"){
