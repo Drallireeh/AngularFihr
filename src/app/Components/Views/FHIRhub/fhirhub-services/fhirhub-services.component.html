@@ -1,21 +1,26 @@
-<section>
-    <p>
-        Les services listés ci-dessous supportent l'interface RESTful FHIR.<br>
-        Dans la mesure du possible, ils implémentent les profils de ressources des projets :
-    </p>
-    <ul>
-        <li>CI-SIS</li>
-        <li>Interop'Santé (HL7 France et IHE France)</li>
-        <li>Modélisation des structures et professionnels (ANS)</li>
-        <li>L'annexe CISIS INS et les modifications IHE France pour l'INS</li>
-    </ul>
-    <p>Nous faison parfois référence Find-1-Code. Ce site permet la meilleure compréhension de certains codes exploités dans les différentes références de base.</p>
+<section class="hidden">
+    <div>
+        <p>
+            Les services listés ci-dessous supportent l'interface RESTful FHIR.<br>
+            Dans la mesure du possible, ils implémentent les profils de ressources des projets :
+        </p>
+        <ul>
+            <li>CI-SIS</li>
+            <li>Interop'Santé (HL7 France et IHE France)</li>
+            <li>Modélisation des structures et professionnels (ANS)</li>
+            <li>L'annexe CISIS INS et les modifications IHE France pour l'INS</li>
+        </ul>
+        <p>Nous faison parfois référence Find-1-Code. Ce site permet la meilleure compréhension de certains codes exploités dans les différentes références de base.</p>
+    </div>
+    <div>
+        <app-next-liste>
+            <app-next-ligne *ngFor="let item of listServices; let i = index" class="row">
+                <p class="col-md-3"><a [href]="item.lien">{{ item.name }}</a></p>
+                <p class="col-md-9" [innerHTML]="item.label"></p>
+            </app-next-ligne>
+        </app-next-liste>
+    </div>
 </section>
 <section>
-    <app-next-liste>
-        <app-next-ligne *ngFor="let item of listServices; let i = index" class="row">
-            <p class="col-md-3"><a [href]="item.lien">{{ item.name }}</a></p>
-            <p class="col-md-9" [innerHTML]="item.label"></p>
-        </app-next-ligne>
-    </app-next-liste>
+    <h1>test</h1>
 </section>
