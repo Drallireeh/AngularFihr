@@ -11,7 +11,7 @@
 <section *ngIf="endpoint" id="endpoint">
     <app-next-liste>
         <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
-            <p class="row" (click)="getOneFhirEndpoint(i)">
+            <p class="row" (click)="getOneFhirEndpoint(i, item.name)">
                 <span class="col-md-4">{{ item.name }}</span>
                 <span class="col-md-8"><a [href]="item.lien">{{ item.label }}</a></span>
             </p>

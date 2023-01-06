@@ -28,6 +28,7 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
   faHospital = faHospital;
 
   @Output() showBtnSuppr = new EventEmitter();
+  @Output() changeTitle = new EventEmitter<string>();
 
   // Endpoint title
   endpointTitle: string = "";
@@ -67,14 +68,16 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
     this.configuration = false;
     this.form = false;
     this.form2 = false;
+    this.changeTitle.emit(`Liste des endpoints (${this.oneConfig.name})`);
   }
 
-  getOneFhirEndpoint(id: number): void {
+  getOneFhirEndpoint(id: number, endp: string): void {
     this.base = false;
     this.endpoint = false;
     this.configuration = true;
     this.form = false;
     this.form2 = false;
+    this.changeTitle.emit(`Configuration commune ${endp} (${this.oneConfig.name})`);
   }
 
   getOneFhirConfigForm(id:number): void {

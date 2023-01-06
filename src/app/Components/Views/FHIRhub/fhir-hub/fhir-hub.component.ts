@@ -41,4 +41,8 @@ export class FHIRhubComponent implements OnInit {
   showBtnSuppr(): void {
     this.configForm = true;
   }
+
+  changeTitleConfig(title: string): void {
+    this.FHIRTitle = title;
+  }
 }
