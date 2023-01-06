@@ -76,49 +76,58 @@
     <h1>Configuration DMP ({{ oneConfig.name }})</h1>
     <form action="">
         <div>
-            <label for="">Adresse du endpoint</label>
-            <input type="text" [value]="formConfig2.adresseEndpoint">
+            <label class="col-md-2" for="">Adresse du endpoint</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.adresseEndpoint">
         </div>
         <div>
-            <label for="">Adresse du Endpoint DMP</label>
-            <input type="text" [value]="formConfig2.adresseEndpointDMP">
+            <label class="col-md-2" class="col-md-2" for="">Adresse du Endpoint DMP</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.adresseEndpointDMP">
         </div>
         <div>
-            <label for="">Adresse du Endpoint MSS</label>
-            <input type="text" [value]="formConfig2.adresseEndpointMSS">
+            <label class="col-md-2" for="">Adresse du Endpoint MSS</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.adresseEndpointMSS">
         </div>
         <div>
-            <label for="">OID racine DMP</label>
-            <input type="text" [value]="formConfig2.OIDRacineDMP">
+            <label class="col-md-2" for="">OID racine DMP</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.OIDRacineDMP">
         </div>
         <div>
-            <label for="">Gestion des mineurs</label>
-            <input type="checkbox" [checked]="formConfig2.gestion">
-        </div>
-        <div>
-            <label for="">Age de la majorité</label>
-            <input type="text" [value]="formConfig2.age">
-        </div>
-        <div>
-            <label for="">Age minimal pour la connexion secrète</label>
-            <input type="text" [value]="formConfig2.ageMini">
-        </div>
-        <div>
-            <label for="">Réévaluation de la connexion secrète</label>
-            <input type="text" [value]="formConfig2.reevaluation">
-        </div>
-        <div>
-            <label for="">Confidentialité</label>
-            <div *ngFor="let item of formConfig2.confidentialite; let i = index ">
-                <input type="checkbox" [checked]="item[i]">
-                <label for="">{{formConfig2.confidentialiteLabel[i]}}</label>
+            <label class="col-md-2" for="">Gestion des mineurs</label>
+            <div class="col-md-9 offset-md-1">
+                <div class="contain-check">
+                    <input id="mineur" type="checkbox" [checked]="formConfig2.gestion">
+                    <label for="mineur">Proposer la connexion secrète</label>
+                </div>
             </div>
         </div>
         <div>
-            <label for="">Automatisation</label>
-            <div *ngFor="let item of formConfig2.automatisation; let i = index ">
-                <input type="checkbox" [checked]="item[i]">
-                <label for="">{{formConfig2.automatisationLabel[i]}}</label>
+            <label class="col-md-2" for="">Age de la majorité</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.age">
+        </div>
+        <div>
+            <label class="col-md-2" for="">Age minimal pour la connexion secrète</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.ageMini">
+        </div>
+        <div>
+            <label class="col-md-2" for="">Réévaluation de la connexion secrète</label>
+            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.reevaluation">
+        </div>
+        <div>
+            <label class="col-md-2" for="">Confidentialité</label>
+            <div class="col-md-9 offset-md-1">
+                <div class="contain-check" *ngFor="let item of formConfig2.confidentialite; let i = index ">
+                    <input type="checkbox" [checked]="item[i]" [id]="'confidentiel'+i">
+                    <label [for]="'confidentiel'+i">{{formConfig2.confidentialiteLabel[i]}}</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <label class="col-md-2" for="">Automatisation</label>
+            <div class="col-md-9 offset-md-1">
+                <div class="contain-check" *ngFor="let item of formConfig2.automatisation; let i = index ">
+                    <input type="checkbox" [checked]="item[i]" [id]="'auto'+i">
+                    <label [for]="'auto'+i">{{formConfig2.automatisationLabel[i]}}</label>
+                </div>
             </div>
         </div>
     </form>
