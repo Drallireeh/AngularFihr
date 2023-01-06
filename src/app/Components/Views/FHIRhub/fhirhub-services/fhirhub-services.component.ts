@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService-interface';
+import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirServiceDetail-interface';
 import { FhirServiceService } from 'src/app/Services/FHIRhub-service/fhir-service.service';
 
 @Component({
@@ -11,6 +12,11 @@ export class FhirhubServicesComponent implements OnInit {
  
   // Liste des datas
 	listServices!: FhirServiceInterface[];
+  listServiceDetails!: FhirServiceDetailInterface[];
+
+  // Liste des booléens d'affichage
+  base: boolean = true;
+  detail: boolean = false;
 
   constructor(private FhirServiceData: FhirServiceService) { }
 
@@ -21,4 +27,10 @@ export class FhirhubServicesComponent implements OnInit {
   getFhirService(): void {
 		this.FhirServiceData.getFHIRService().subscribe(services => this.listServices = services);
 	}
+
+  getServiceDetail(): void {
+    this.FhirServiceData.getFhirServiceDetail().subscribe(services => this.listServiceDetails = services);
+    this.base = false;
+    this.detail = true;
+  }
 }
