@@ -1,4 +1,4 @@
-import { FhirServiceInterface } from "../Interfaces/FhirHub/fhirService-interface";
+import { FhirServiceInterface } from "../Interfaces/FhirHub/fhirService/fhirService-interface";
 
 export const FHIRService: FhirServiceInterface[] = [
     {

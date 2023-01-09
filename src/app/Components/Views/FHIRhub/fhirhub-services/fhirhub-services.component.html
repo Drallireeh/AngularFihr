@@ -23,7 +23,7 @@
 </section>
 <section *ngIf="detail">
     <app-next-liste>
-        <app-next-ligne *ngFor="let item of listServiceDetails; let i = index" class="row">
+        <app-next-ligne *ngFor="let item of listServiceDetails[0].params; let i = index" class="row">
             <p class="col-md-3">{{item.name}} ({{item.type}})</p>
             <p class="col-md-9" [innerHTML]="item.label"></p>
         </app-next-ligne>

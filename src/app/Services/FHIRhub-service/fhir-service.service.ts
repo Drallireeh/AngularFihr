@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService-interface';
+import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirService-interface';
 import { FHIRService } from 'src/app/Mocks/mock-fhirService';
-import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirServiceDetail-interface';
+import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirServiceDetail-interface';
 import { FHIRServiceDetail } from 'src/app/Mocks/mock-fhirServiceDetail';
 
 @Injectable({

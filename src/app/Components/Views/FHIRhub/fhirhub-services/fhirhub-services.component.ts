@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService-interface';
-import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirServiceDetail-interface';
+import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirService-interface';
+import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirServiceDetail-interface';
 import { FhirServiceService } from 'src/app/Services/FHIRhub-service/fhir-service.service';
 
 @Component({
