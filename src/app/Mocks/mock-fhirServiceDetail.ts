@@ -34,6 +34,32 @@ export const FHIRServiceDetail: FhirServiceDetailInterface[] = [
                 isActive: null,
             },
         ],
+        interactions: [
+            {
+                name: "read",
+                lien: "https://www.google.com"
+            },
+            {
+                name: "search-type",
+                lien: "https://www.google.com"
+            },
+            {
+                name: "patch",
+                lien: "https://www.google.com"
+            },
+            {
+                name: "create",
+                lien: "https://www.google.com"
+            },
+            {
+                name: "update",
+                lien: "https://www.google.com"
+            },
+            {
+                name: "delete",
+                lien: "https://www.google.com"
+            }
+        ],
         params: [
             {
                 name: "Mode inclusion",
