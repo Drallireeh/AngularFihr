@@ -14,7 +14,7 @@
     </div>
     <div>
         <app-next-liste>
-            <app-next-ligne (click)="getServiceDetail()" *ngFor="let item of listServices; let i = index" class="row">
+            <app-next-ligne (click)="getServiceDetail(item.name)" *ngFor="let item of listServices; let i = index" class="row">
                 <p class="col-md-3"><a [href]="item.lien">{{ item.name }}</a></p>
                 <p class="col-md-9" [innerHTML]="item.label"></p>
             </app-next-ligne>
@@ -22,10 +22,16 @@
     </div>
 </section>
 <section *ngIf="detail">
+    <div>
+        <p *ngFor="let prop of listServiceDetails[0].props; let i = index">{{prop.name}}</p>
+    </div>
+    <div>
+        <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">{{interaction.name}}</p>
+    </div>
     <app-next-liste>
-        <app-next-ligne *ngFor="let item of listServiceDetails[0].params; let i = index" class="row">
-            <p class="col-md-3">{{item.name}} ({{item.type}})</p>
-            <p class="col-md-9" [innerHTML]="item.label"></p>
+        <app-next-ligne *ngFor="let param of listServiceDetails[0].params; let i = index" class="row">
+            <p class="col-md-3">{{param.name}} ({{param.type}})</p>
+            <p class="col-md-9" [innerHTML]="param.label"></p>
         </app-next-ligne>
     </app-next-liste>
 </section>

@@ -9,13 +9,13 @@
 	</app-next-panel-actions>
 <app-next-onglets slot="panel-body" class="test" (tabSelected)="changeTab($event)">
     <app-next-onglets-content tabTitle="Services">
-        <app-fhirhub-services></app-fhirhub-services>
+        <app-fhirhub-services (changeTitle)="changeTitleFhirService($event)"></app-fhirhub-services>
     </app-next-onglets-content>
     <app-next-onglets-content tabTitle="Transaction">
         <app-fhirhub-transaction></app-fhirhub-transaction>
     </app-next-onglets-content>
     <app-next-onglets-content tabTitle="Config">
-        <app-fhirhub-config [dataTab]="tabActive" (changeTitle)="changeTitleConfig($event)" (showBtnSuppr)="showBtnSuppr()" ></app-fhirhub-config>
+        <app-fhirhub-config [dataTab]="tabActive" (changeTitle)="changeTitleFhirService($event)" (showBtnSuppr)="showBtnSuppr()" ></app-fhirhub-config>
     </app-next-onglets-content>
 </app-next-onglets>
 </app-next-panel>

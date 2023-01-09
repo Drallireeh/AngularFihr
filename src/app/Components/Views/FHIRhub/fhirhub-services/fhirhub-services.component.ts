@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirService-interface';
 import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirServiceDetail-interface';
 import { FhirServiceService } from 'src/app/Services/FHIRhub-service/fhir-service.service';
@@ -18,6 +18,8 @@ export class FhirhubServicesComponent implements OnInit {
   base: boolean = true;
   detail: boolean = false;
 
+  @Output() changeTitle = new EventEmitter<string>();
+
   constructor(private FhirServiceData: FhirServiceService) { }
 
   ngOnInit(): void {
@@ -28,9 +30,10 @@ export class FhirhubServicesComponent implements OnInit {
 		this.FhirServiceData.getFHIRService().subscribe(services => this.listServices = services);
 	}
 
-  getServiceDetail(): void {
+  getServiceDetail(nameService:string): void {
     this.FhirServiceData.getFhirServiceDetail().subscribe(services => this.listServiceDetails = services);
     this.base = false;
     this.detail = true;
+    this.changeTitle.emit(`DETAIL DU SERVICE FHIR ${nameService}`);
   }
 }

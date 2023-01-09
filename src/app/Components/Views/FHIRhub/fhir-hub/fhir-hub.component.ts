@@ -42,7 +42,7 @@ export class FHIRhubComponent implements OnInit {
     this.configForm = true;
   }
 
-  changeTitleConfig(title: string): void {
+  changeTitleFhirService(title: string): void {
     this.FHIRTitle = title;
   }
 }
