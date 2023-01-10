@@ -5,6 +5,7 @@ import { NextPanelHeadingComponent } from '../next-panel-heading/next-panel-head
 import { NextPanelBodyComponent } from '../next-panel-body/next-panel-body.component';
 import { NextPanelBodyFiltersComponent } from '../next-panel-body-filters/next-panel-body-filters.component';
 import { NextPanelActionsComponent } from '../next-panel-actions/next-panel-actions.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NextPanelActionsComponent } from '../next-panel-actions/next-panel-acti
     NextPanelActionsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    InfiniteScrollModule
   ],
   exports: [
     NextPanelComponent,

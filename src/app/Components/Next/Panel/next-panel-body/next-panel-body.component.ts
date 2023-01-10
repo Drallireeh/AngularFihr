@@ -11,4 +11,8 @@ export class NextPanelBodyComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onScrollDown(){
+    console.log('oui')
+  }
 }

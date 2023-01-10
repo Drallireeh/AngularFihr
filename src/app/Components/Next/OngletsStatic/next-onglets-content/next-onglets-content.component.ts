@@ -14,4 +14,8 @@ export class NextOngletsContentComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	onScrollDown(){
+		console.log('oui')
+	  }
+
 }

@@ -2,7 +2,8 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { NextOngletsContentComponent } from "../next-onglets-content/next-onglets-content.component";
 import { NextOngletsComponent } from "./next-onglets.component";
-import { NextPanelModule } from "../../Panel/next-panel/next-panel.module"
+import { NextPanelModule } from "../../Panel/next-panel/next-panel.module";
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
 	declarations: [
@@ -11,7 +12,8 @@ import { NextPanelModule } from "../../Panel/next-panel/next-panel.module"
 	],
 	imports: [
 		CommonModule,
-		NextPanelModule
+		NextPanelModule,
+		InfiniteScrollModule
 	],
 	exports: [
 		NextOngletsComponent,

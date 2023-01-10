@@ -1,3 +1,8 @@
-<div class="panel-body flex-col flex-grow-1 flex-basis-none">
+<div class="panel-body flex-col flex-grow-1 flex-basis-none" infinite-scroll
+[infiniteScrollDistance]="1"
+[infiniteScrollThrottle]="50"
+[scrollWindow]="false"
+(scrolled)="onScrollDown()"
+(clicked)="onScrollDown()">
     <ng-content></ng-content>
 </div>

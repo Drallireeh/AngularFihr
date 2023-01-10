@@ -6,6 +6,7 @@ import { FhirhubConfigComponent } from '../fhirhub-config/fhirhub-config.compone
 import { FhirhubServicesComponent } from '../fhirhub-services/fhirhub-services.component';
 import { FhirhubTransactionComponent } from '../fhirhub-transaction/fhirhub-transaction.component';
 import { NextModule } from '../../../Next/next.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NextModule } from '../../../Next/next.module';
     CommonModule,
     NextModule,
     FontAwesomeModule,
+    InfiniteScrollModule
   ]
 })
 export class FHIRhubModule { }

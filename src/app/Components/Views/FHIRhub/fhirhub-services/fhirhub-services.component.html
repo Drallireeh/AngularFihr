@@ -21,7 +21,12 @@
         </app-next-liste>
     </div>
 </section>
-<section *ngIf="detail" id="detailService">
+<section *ngIf="detail" id="detailService" infinite-scroll
+[infiniteScrollDistance]="1"
+[infiniteScrollThrottle]="50"
+[scrollWindow]="false"
+(scrolled)="onScrollDown()"
+(clicked)="onScrollDown()">
     <div>
         <div>
             <h2>Propriétés :</h2>
