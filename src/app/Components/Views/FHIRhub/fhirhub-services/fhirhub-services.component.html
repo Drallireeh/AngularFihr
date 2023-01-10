@@ -21,12 +21,22 @@
         </app-next-liste>
     </div>
 </section>
-<section *ngIf="detail">
+<section *ngIf="detail" id="detailService">
     <div>
-        <p *ngFor="let prop of listServiceDetails[0].props; let i = index">{{prop.name}}</p>
-    </div>
-    <div>
-        <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">{{interaction.name}}</p>
+        <div>
+            <h2>Propriétés :</h2>
+            <div>
+                <div *ngFor="let prop of listServiceDetails[0].props; let i = index" class="row">
+                    <p class="col-md-4">{{prop.name}}</p>
+                    <p class="col-md-8" *ngIf="prop.isSupported; else elseBlock">{{ prop.isActive }}</p>
+                    <ng-template #elseBlock><p class="col-md-8">Cette propriété n'est pas supportée</p></ng-template>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Intéractions :</h2>
+            <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">{{interaction.name}}</p>
+        </div>
     </div>
     <app-next-liste>
         <app-next-ligne *ngFor="let param of listServiceDetails[0].params; let i = index" class="row">
