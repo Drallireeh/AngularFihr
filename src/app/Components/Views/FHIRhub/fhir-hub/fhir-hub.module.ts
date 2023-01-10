@@ -18,7 +18,7 @@ import { NextModule } from '../../../Next/next.module';
   imports: [
     CommonModule,
     NextModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ]
 })
 export class FHIRhubModule { }

@@ -36,4 +36,8 @@ export class FhirhubServicesComponent implements OnInit {
     this.detail = true;
     this.changeTitle.emit(`DETAIL DU SERVICE FHIR ${nameService}`);
   }
+
+  onScrollDown(): void {
+    console.log('oui')
+  }
 }
