@@ -14,7 +14,7 @@
     </div>
     <div>
         <app-next-liste>
-            <app-next-ligne (click)="getServiceDetail(item.name)" *ngFor="let item of listServices; let i = index" class="row">
+            <app-next-ligne (click)="getServiceDetail(item.name, 1, 10)" *ngFor="let item of listServices; let i = index" class="row">
                 <p class="col-md-3"><a [href]="item.lien">{{ item.name }}</a></p>
                 <p class="col-md-9" [innerHTML]="item.label"></p>
             </app-next-ligne>
@@ -38,10 +38,11 @@
             <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">{{interaction.name}}</p>
         </div>
     </div>
-    <app-next-liste>
-        <app-next-ligne *ngFor="let param of listServiceDetails[0].params; let i = index" class="row">
+    <app-next-liste class="etsttt" *ngIf="listServiceDetailsParams.length > 0; else elseBlock2" >
+        <app-next-ligne *ngFor="let param of listServiceDetailsParams; let i = index" class="row">
             <p class="col-md-3">{{param.name}} ({{param.type}})</p>
             <p class="col-md-9" [innerHTML]="param.label"></p>
         </app-next-ligne>
     </app-next-liste>
+    <ng-template #elseBlock2><p class="col-md-8">Pas de paramètres detectés</p></ng-template>
 </section>
