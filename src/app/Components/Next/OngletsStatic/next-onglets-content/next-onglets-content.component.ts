@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
+import { PanelService } from 'src/app/Services/panel.service';
 
 @Component({
 	selector: 'app-next-onglets-content',
@@ -8,14 +10,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NextOngletsContentComponent implements OnInit {
 	@Input('tabTitle') title: string = '';
 	@Input() active = false;
-	
-	constructor() { }
 
+	scrollInf: Subject<void> = new Subject<void>();
+	
+	constructor(private letest: PanelService) { 
+		this.letest.scrollPanel.next(this.title);
+	}
+	
 	ngOnInit(): void {
 	}
 
 	onScrollDown(){
-		console.log('oui')
-	  }
+		this.scrollInf.next();
+		this.letest.scrollPanel.next(this.title);
+	}
 
 }

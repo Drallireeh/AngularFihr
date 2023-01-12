@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-fhirhub',
@@ -11,7 +12,7 @@ export class FHIRhubComponent implements OnInit {
   configForm:boolean = false;
   tabActive!:string;
 
-  FHIRTitle:string = "LISTE DES SERVEURS FHIR REST"
+  FHIRTitle:string = "LISTE DES SERVEURS FHIR REST";
   
   constructor() { }
 

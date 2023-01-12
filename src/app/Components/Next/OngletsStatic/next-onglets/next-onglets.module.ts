@@ -8,12 +8,12 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @NgModule({
 	declarations: [
         NextOngletsComponent,
-        NextOngletsContentComponent
+        NextOngletsContentComponent,
 	],
 	imports: [
 		CommonModule,
 		NextPanelModule,
-		InfiniteScrollModule
+		InfiniteScrollModule,
 	],
 	exports: [
 		NextOngletsComponent,

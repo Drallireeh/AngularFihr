@@ -4,6 +4,7 @@ import { FhirConfigFormInterface } from 'src/app/Interfaces/FhirHub/fhirConfigFo
 import { FhirConfigForm2Interface } from 'src/app/Interfaces/FhirHub/fhirCongifForm2-interface';
 import { FhirConfigService } from 'src/app/Services/FHIRhub-config/fhir-config.service';
 import { faHospital } from '@fortawesome/free-solid-svg-icons';
+import { PanelService } from 'src/app/Services/panel.service';
 
 @Component({
   selector: 'app-fhirhub-config',
@@ -36,7 +37,16 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
   @Input() data!:string
   @Input() dataTab!: string;
 
-  constructor(private FhirConfigData: FhirConfigService) { }
+  constructor(private FhirConfigData: FhirConfigService, private test: PanelService) {
+    this.test.scrollPanel.subscribe((data) => {
+      // Whenever the parent emits using the next method,
+      // you can receive the data in here and act on it.
+      console.log(data)
+      if(data == "Services"){
+        console.log('Je suis au bout des services')
+      }
+  })
+   }
 
   ngOnInit(): void {
     this.getFhirConfig();

@@ -1,8 +1,7 @@
-<div [hidden]="!active" class="panel-body flex-col flex-grow-1 flex-basis-none overflow" infinite-scroll
+<div [hidden]="!active" class="panel-body flex-col flex-grow-1 flex-basis-none overflow" [id]="title" infinite-scroll
 [infiniteScrollDistance]="1"
 [infiniteScrollThrottle]="50"
 [scrollWindow]="false"
-(scrolled)="onScrollDown()"
-(clicked)="onScrollDown()">
+(scrolled)="onScrollDown()">
     <ng-content></ng-content>
 </div>
