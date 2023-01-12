@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirService-interface';
 import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirServiceDetail-interface';
 import { FhirServiceService } from 'src/app/Services/FHIRhub-service/fhir-service.service';
+import { PanelService } from 'src/app/Services/panel.service';
 
 @Component({
   selector: 'app-fhirhub-services',
@@ -20,8 +21,13 @@ export class FhirhubServicesComponent implements OnInit {
 
   @Output() changeTitle = new EventEmitter<string>();
 
-  constructor(private FhirServiceData: FhirServiceService) { }
-
+  constructor(private FhirServiceData: FhirServiceService, private test: PanelService) {
+    this.test.scrollPanel.subscribe((data) => {
+      if(data == "Services" && this.detail == true){
+        console.log('Je suis au bout des services')
+      }
+  })
+   }
   ngOnInit(): void {
     this.getFhirService();
   }

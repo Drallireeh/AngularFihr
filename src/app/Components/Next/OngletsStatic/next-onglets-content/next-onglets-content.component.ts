@@ -11,18 +11,21 @@ export class NextOngletsContentComponent implements OnInit {
 	@Input('tabTitle') title: string = '';
 	@Input() active = false;
 
+	@Input() scrollActive = false;
+
 	scrollInf: Subject<void> = new Subject<void>();
 	
-	constructor(private letest: PanelService) { 
-		this.letest.scrollPanel.next(this.title);
+	constructor(private scroll: PanelService) { 
+		this.scroll.scrollPanel.next(this.title);
 	}
 	
 	ngOnInit(): void {
 	}
 
 	onScrollDown(){
-		this.scrollInf.next();
-		this.letest.scrollPanel.next(this.title);
+		if(this.scrollActive){
+			this.scroll.scrollPanel.next(this.title);
+		}
 	}
 
 }
