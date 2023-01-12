@@ -21,6 +21,7 @@ export class FhirhubServicesComponent implements OnInit {
   // Liste des booléens d'affichage
   base: boolean = true;
   detail: boolean = false;
+  detailParamsActive:boolean = false;
 
   // Liste des variables pour le scroll infini
   indexParams = 0;

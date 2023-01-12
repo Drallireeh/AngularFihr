@@ -39,9 +39,14 @@
         </div>
     </div>
     <app-next-liste *ngIf="listServiceDetailsParams.length > 0; else elseBlock2" >
-        <app-next-ligne *ngFor="let param of listServiceDetailsParams; let i = index" class="row">
-            <p class="col-md-3">{{param.name}} ({{param.type}})</p>
-            <p class="col-md-9" [innerHTML]="param.label"></p>
+        <app-next-ligne *ngFor="let param of listServiceDetailsParams; let i = index">
+            <div class="row">
+                <p class="col-md-3">{{param.name}} ({{param.type}})</p>
+                <p class="col-md-9" [innerHTML]="param.label"></p>
+            </div>
+            <div *ngIf="detailParamsActive">
+                Nous sommes les params
+            </div>
         </app-next-ligne>
     </app-next-liste>
     <ng-template #elseBlock2><p class="col-md-8">Pas de paramètres detectés</p></ng-template>
