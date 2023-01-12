@@ -38,7 +38,7 @@
             <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">{{interaction.name}}</p>
         </div>
     </div>
-    <app-next-liste class="etsttt" *ngIf="listServiceDetailsParams.length > 0; else elseBlock2" >
+    <app-next-liste *ngIf="listServiceDetailsParams.length > 0; else elseBlock2" >
         <app-next-ligne *ngFor="let param of listServiceDetailsParams; let i = index" class="row">
             <p class="col-md-3">{{param.name}} ({{param.type}})</p>
             <p class="col-md-9" [innerHTML]="param.label"></p>

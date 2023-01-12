@@ -9,7 +9,7 @@
 	</app-next-panel-actions>
 <app-next-onglets slot="panel-body" class="test" (tabSelected)="changeTab($event)">
     <app-next-onglets-content tabTitle="Services" [scrollActive]="true">
-        <app-fhirhub-services (changeTitle)="changeTitleFhirService($event)"></app-fhirhub-services>
+        <app-fhirhub-services (changeTitle)="changeTitleFhirService($event)" id="SerivcesOnglet"></app-fhirhub-services>
     </app-next-onglets-content>
     <app-next-onglets-content tabTitle="Transaction">
         <app-fhirhub-transaction></app-fhirhub-transaction>

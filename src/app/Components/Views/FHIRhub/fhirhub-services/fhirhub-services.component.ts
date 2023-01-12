@@ -47,7 +47,7 @@ export class FhirhubServicesComponent implements OnInit {
     this.FhirServiceData.getFhirServiceDetailParams(index, number).subscribe(servicesParams => this.listServiceDetailsParamsData = servicesParams);
     this.base = false;
     this.detail = true;
-    this.addServiceDetails(this.indexParams, 10)
+    this.addServiceDetails(this.indexParams, 10);
     this.changeTitle.emit(`DETAIL DU SERVICE FHIR ${nameService}`);
 
   }
@@ -59,10 +59,17 @@ export class FhirhubServicesComponent implements OnInit {
         this.indexParams += 1;
       }
       else {
-        console.log('finito le scroll la')
         return;
       }
     }
+    setTimeout(() => {
+      var ctnGlobal:any = document.getElementById('Services');
+      var ctn:any = document.getElementById('SerivcesOnglet');
+      if(ctn.offsetHeight < ctnGlobal.offsetHeight){
+        this.addServiceDetails(this.indexParams, 10);
+      }
+    }, 0)
+    
   }
 
   onScrollDown(): void {
