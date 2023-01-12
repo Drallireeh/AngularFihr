@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChange, SimpleChanges } from '@angular/core';
 import { FhirServiceInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirService-interface';
 import { FhirServiceDetailInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirServiceDetail-interface';
 import { FhirServiceDetailParamsInterface } from 'src/app/Interfaces/FhirHub/fhirService/fhirServiceDetailParams-interface';
@@ -25,6 +25,7 @@ export class FhirhubServicesComponent implements OnInit {
   // Liste des variables pour le scroll infini
   indexParams = 0;
 
+  @Input() dataTab!: string;
   @Output() changeTitle = new EventEmitter<string>();
 
   constructor(private FhirServiceData: FhirServiceService, private test: PanelService) {
@@ -36,6 +37,15 @@ export class FhirhubServicesComponent implements OnInit {
    }
   ngOnInit(): void {
     this.getFhirService();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    let change: SimpleChange = changes['dataTab']; 
+
+    this.base = true;
+    this.detail = false;
+    this.indexParams = 0;
+    this.listServiceDetailsParams = [];
   }
 
   getFhirService(): void {
