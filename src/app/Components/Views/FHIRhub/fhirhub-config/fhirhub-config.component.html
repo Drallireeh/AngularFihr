@@ -1,4 +1,5 @@
-<section *ngIf="base" id="base">
+<ng-container [ngSwitch]="elementShow">
+<section *ngSwitchCase="0" id="base">
     <div>
         <div *ngFor="let item of listConfig; let i = index" (click)="getOneFhirConfig(i)" [class]="item.color">
             <p>{{ item.name }}</p>
@@ -8,7 +9,7 @@
         </div>
     </div>
 </section>
-<section *ngIf="endpoint" id="endpoint">
+<section *ngSwitchCase="1" id="endpoint">
     <app-next-liste>
         <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
             <p class="row" (click)="getOneFhirEndpoint(i, item.name)">
@@ -18,7 +19,7 @@
         </app-next-ligne>
     </app-next-liste>
 </section>
-<section *ngIf="configuration" id="configuration">
+<section *ngSwitchCase="2" id="configuration">
     <app-next-liste>
         <app-next-ligne *ngFor="let item of oneConfig.endpoints; let i = index" class="row">
             <p class="col-md-4" (click)="getOneFhirConfigForm(i)">{{ oneConfig.endpoints[i].nameEtab }}</p>
@@ -26,7 +27,7 @@
         </app-next-ligne>
     </app-next-liste>
 </section>
-<section *ngIf="form" id="formConfig">
+<section *ngSwitchCase="3" id="formConfig">
     <form action="">
         <div class="row">
             <label class="col-md-2" for="">OID</label>
@@ -72,7 +73,7 @@
         </div>
     </form>
 </section>
-<section *ngIf="form2" id="formConfig2">
+<section *ngSwitchCase="4" id="formConfig2">
     <h1>Configuration DMP ({{ oneConfig.name }})</h1>
     <form action="">
         <div>
@@ -132,3 +133,4 @@
         </div>
     </form>
 </section>
+</ng-container>

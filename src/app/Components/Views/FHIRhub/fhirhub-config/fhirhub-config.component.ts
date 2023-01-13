@@ -18,12 +18,8 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
   formConfig!: FhirConfigFormInterface;
   formConfig2!: FhirConfigForm2Interface;
 
-  // Liste des booléens d'affichage
-  base: boolean = true;
-  endpoint: boolean = false;
-  configuration: boolean = false;
-  form: boolean = false;
-  form2: boolean = false;
+  // Booléen d'affichage
+  elementShow: number = 0;
 
   faHospital = faHospital;
 
@@ -45,58 +41,34 @@ export class FhirhubConfigComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     let change: SimpleChange = changes['dataTab']; 
 
-    this.base = true;
-    this.endpoint = false;
-    this.configuration = false;
-    this.form = false;
-    this.form2 = false;
+    this.elementShow = 0;
   }
 
   getFhirConfig(): void {
 		this.FhirConfigData.getFHIRConfig().subscribe(configs => this.listConfig = configs);
-    this.base = true;
-    this.endpoint = false;
-    this.configuration = false;
-    this.form = false;
-    this.form2 = false;
+    this.elementShow = 0;
 	}
 
   getOneFhirConfig(id: number): void {
     this.FhirConfigData.getOneFHIRConfig(id).subscribe(config => this.oneConfig = config);
-    this.base = false;
-    this.endpoint = true;
-    this.configuration = false;
-    this.form = false;
-    this.form2 = false;
+    this.elementShow = 1;
     this.changeTitle.emit(`Liste des endpoints (${this.oneConfig.name})`);
   }
 
   getOneFhirEndpoint(id: number, endp: string): void {
-    this.base = false;
-    this.endpoint = false;
-    this.configuration = true;
-    this.form = false;
-    this.form2 = false;
+    this.elementShow = 2;
     this.changeTitle.emit(`Configuration commune ${endp} (${this.oneConfig.name})`);
   }
 
   getOneFhirConfigForm(id:number): void {
     this.FhirConfigData.getOneFHIRConfigForm(id).subscribe(config => this.formConfig = config);
-    this.base = false;
-    this.endpoint = false;
-    this.configuration = false;
-    this.form = true;
-    this.form2 = false;
+    this.elementShow = 3;
     this.showBtnSuppr.emit();
   }
 
   getOneFhirConfigForm2(id:number): void {
     this.FhirConfigData.getOneFHIRConfigForm2(id).subscribe(config => this.formConfig2 = config);
-    this.base = false;
-    this.endpoint = false;
-    this.configuration = false;
-    this.form = false;
-    this.form2 = true;
+    this.elementShow = 4;
     this.showBtnSuppr.emit();
   }
 }

@@ -5,12 +5,16 @@ import { FhirServiceDetailParamsInterface } from 'src/app/Interfaces/FhirHub/fhi
 import { FhirServiceService } from 'src/app/Services/FHIRhub-service/fhir-service.service';
 import { PanelService } from 'src/app/Services/panel.service';
 
+import { InfiniteScrollScript } from 'src/app/Script/infiniteScroll'
+
 @Component({
   selector: 'app-fhirhub-services',
   templateUrl: './fhirhub-services.component.html',
   styleUrls: ['./fhirhub-services.component.less']
 })
 export class FhirhubServicesComponent implements OnInit {
+
+  infiniteScript: any = InfiniteScrollScript;
  
   // Liste des datas
 	listServices!: FhirServiceInterface[];
@@ -38,6 +42,9 @@ export class FhirhubServicesComponent implements OnInit {
    }
   ngOnInit(): void {
     this.getFhirService();
+    var ctnGlobal:any = document.getElementById('Services');
+      var ctn:any = document.getElementById('SerivcesOnglet');
+      console.log(ctnGlobal, ctn)
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -80,7 +87,6 @@ export class FhirhubServicesComponent implements OnInit {
         this.addServiceDetails(this.indexParams, 10);
       }
     }, 0)
-    
   }
 
   onScrollDown(): void {
