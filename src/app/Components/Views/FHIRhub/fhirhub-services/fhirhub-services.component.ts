@@ -41,9 +41,6 @@ export class FhirhubServicesComponent implements OnInit {
    }
   ngOnInit(): void {
     this.getFhirService();
-    var ctnGlobal:any = document.getElementById('Services');
-      var ctn:any = document.getElementById('SerivcesOnglet');
-      console.log(ctnGlobal, ctn)
   }
 
   ngOnChanges(changes: SimpleChanges) {

@@ -1,4 +1,12 @@
 import { FhirServiceDetailInterface } from "../Interfaces/FhirHub/fhirService/fhirServiceDetail-interface";
+import { faTrash, faPen, faArrowUp, faBook, faSearch, faMedkit } from '@fortawesome/free-solid-svg-icons';
+
+var trash = faTrash; 
+var pen = faPen;
+var arrowUp = faArrowUp;
+var book = faBook;
+var search = faSearch;
+var medkit = faMedkit
 
 export const FHIRServiceDetail: FhirServiceDetailInterface[] = [
     {
@@ -37,27 +45,33 @@ export const FHIRServiceDetail: FhirServiceDetailInterface[] = [
         interactions: [
             {
                 name: "read",
-                lien: "https://www.google.com"
+                lien: "https://www.google.com",
+                icon: book
             },
             {
                 name: "search-type",
-                lien: "https://www.google.com"
+                lien: "https://www.google.com",
+                icon: search
             },
             {
                 name: "patch",
-                lien: "https://www.google.com"
+                lien: "https://www.google.com",
+                icon: medkit
             },
             {
                 name: "create",
-                lien: "https://www.google.com"
+                lien: "https://www.google.com",
+                icon: pen
             },
             {
                 name: "update",
-                lien: "https://www.google.com"
+                lien: "https://www.google.com",
+                icon: arrowUp
             },
             {
                 name: "delete",
-                lien: "https://www.google.com"
+                lien: "https://www.google.com",
+                icon: trash
             }
         ],
         params: [

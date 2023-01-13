@@ -35,7 +35,10 @@
         </div>
         <div>
             <h2>Intéractions :</h2>
-            <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">{{interaction.name}}</p>
+            <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">
+                {{interaction.name}}
+                <fa-icon class="next-icon" [icon]="interaction.icon"></fa-icon>
+            </p>
         </div>
     </div>
     <button (click)="showUsualParams()">Affiche les paramètres usuels</button>
