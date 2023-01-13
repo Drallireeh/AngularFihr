@@ -1,4 +1,4 @@
-<section *ngIf="base">
+<section *ngIf="!details">
     <div>
         <p>
             Les services listés ci-dessous supportent l'interface RESTful FHIR.<br>
@@ -21,7 +21,7 @@
         </app-next-liste>
     </div>
 </section>
-<section *ngIf="detail" id="detailService">
+<section *ngIf="details" id="detailService">
     <div>
         <div>
             <h2>Propriétés :</h2>

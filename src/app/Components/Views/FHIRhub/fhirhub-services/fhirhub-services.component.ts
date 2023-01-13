@@ -23,8 +23,7 @@ export class FhirhubServicesComponent implements OnInit {
   listServiceDetailsParams: FhirServiceDetailParamsInterface[] = [];
 
   // Liste des booléens d'affichage
-  base: boolean = true;
-  detail: boolean = false;
+  details: boolean = false;
   detailParamsActive:boolean = false;
 
   // Liste des variables pour le scroll infini
@@ -35,7 +34,7 @@ export class FhirhubServicesComponent implements OnInit {
 
   constructor(private FhirServiceData: FhirServiceService, private test: PanelService) {
     this.test.scrollPanel.subscribe((data) => {
-      if(data == "Services" && this.detail == true){
+      if(data == "Services" && this.details == true){
         this.onScrollDown();
       }
   })
@@ -50,8 +49,7 @@ export class FhirhubServicesComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     let change: SimpleChange = changes['dataTab']; 
 
-    this.base = true;
-    this.detail = false;
+    this.details = false;
     this.indexParams = 0;
     this.listServiceDetailsParams = [];
   }
@@ -63,8 +61,7 @@ export class FhirhubServicesComponent implements OnInit {
   getServiceDetail(nameService:string, index:number, number:number): void {
     this.FhirServiceData.getFhirServiceDetail().subscribe(services => this.listServiceDetails = services);
     this.FhirServiceData.getFhirServiceDetailParams(index, number).subscribe(servicesParams => this.listServiceDetailsParamsData = servicesParams);
-    this.base = false;
-    this.detail = true;
+    this.details = true;
     this.addServiceDetails(this.indexParams, 10);
     this.changeTitle.emit(`DETAIL DU SERVICE FHIR ${nameService}`);
 
