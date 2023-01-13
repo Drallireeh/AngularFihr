@@ -89,4 +89,11 @@ export class FhirhubServicesComponent implements OnInit {
   onScrollDown(): void {
     this.addServiceDetails(this.indexParams, 10)
   }
+
+  showUsualParams(): void {
+    this.detailParamsActive = !this.detailParamsActive;
+    this.indexParams = 0;
+    this.listServiceDetailsParams = [];
+    this.addServiceDetails(this.indexParams, 10);
+  }
 }

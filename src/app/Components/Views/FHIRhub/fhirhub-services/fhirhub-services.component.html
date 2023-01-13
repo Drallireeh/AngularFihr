@@ -38,6 +38,7 @@
             <p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">{{interaction.name}}</p>
         </div>
     </div>
+    <button (click)="showUsualParams()">Affiche les paramètres usuels</button>
     <app-next-liste *ngIf="listServiceDetailsParams.length > 0; else elseBlock2" >
         <app-next-ligne *ngFor="let param of listServiceDetailsParams; let i = index">
             <div class="row">
