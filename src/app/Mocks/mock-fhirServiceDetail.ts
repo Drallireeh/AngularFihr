@@ -1,12 +1,12 @@
 import { FhirServiceDetailInterface } from "../Interfaces/FhirHub/fhirService/fhirServiceDetail-interface";
-import { faTrash, faPen, faArrowUp, faBook, faSearch, faMedkit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPen, faArrowUp, faBook, faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 var trash = faTrash; 
 var pen = faPen;
 var arrowUp = faArrowUp;
 var book = faBook;
 var search = faSearch;
-var medkit = faMedkit
+var plus = faPlus
 
 export const FHIRServiceDetail: FhirServiceDetailInterface[] = [
     {
@@ -56,12 +56,12 @@ export const FHIRServiceDetail: FhirServiceDetailInterface[] = [
             {
                 name: "patch",
                 lien: "https://www.google.com",
-                icon: medkit
+                icon: pen
             },
             {
                 name: "create",
                 lien: "https://www.google.com",
-                icon: pen
+                icon: plus
             },
             {
                 name: "update",

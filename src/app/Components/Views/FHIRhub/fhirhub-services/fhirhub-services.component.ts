@@ -59,9 +59,10 @@ export class FhirhubServicesComponent implements OnInit {
     this.FhirServiceData.getFhirServiceDetail().subscribe(services => this.listServiceDetails = services);
     this.FhirServiceData.getFhirServiceDetailParams(index, number).subscribe(servicesParams => this.listServiceDetailsParamsData = servicesParams);
     this.details = true;
+    var ctnGlobal:any = document.getElementById('Services');
+    ctnGlobal.scrollTop = 0;
     this.addServiceDetails(this.indexParams, 10);
     this.changeTitle.emit(`DETAIL DU SERVICE FHIR ${nameService}`);
-
   }
 
   addServiceDetails(index: number, number: number): void {
@@ -92,5 +93,7 @@ export class FhirhubServicesComponent implements OnInit {
     this.indexParams = 0;
     this.listServiceDetailsParams = [];
     this.addServiceDetails(this.indexParams, 10);
+    var ctnGlobal:any = document.getElementById('Services');
+    ctnGlobal.scrollTop = 0;
   }
 }
