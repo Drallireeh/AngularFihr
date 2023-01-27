@@ -1,21 +1,21 @@
 <app-next-panel idString="FHIRhubID" [panelTitle]="FHIRTitle">
     <app-next-panel-actions slot="panel-heading">
-		<button *ngIf="config" id="btnSave" class="btn">
+		<button *ngIf="config" id="btnSave" class="btn" (click)="emitActionButton('saveConfig')">
             <span class="next-icon next-icon-ajout"></span>Enregistrer
         </button>
-        <button *ngIf="configForm" id="btnDelete" class="btn">
+        <button *ngIf="configForm" id="btnDelete" class="btn" (click)="emitActionButton('deleteConfig')">
             <span class="next-icon next-icon-ajout"></span>Supprimer
         </button>
 	</app-next-panel-actions>
 <app-next-onglets slot="panel-body" class="test" (tabSelected)="changeTab($event)">
     <app-next-onglets-content tabTitle="Services" [scrollActive]="true">
-        <app-fhirhub-services [dataTab]="tabActive" (changeTitle)="changeTitleFhirService($event)" id="SerivcesOnglet"></app-fhirhub-services>
+        <app-fhirhub-services [dataTab]="tabActive" (changeTitle)="changeTitle($event)" id="SerivcesOnglet"></app-fhirhub-services>
     </app-next-onglets-content>
     <app-next-onglets-content tabTitle="Transaction">
         <app-fhirhub-transaction></app-fhirhub-transaction>
     </app-next-onglets-content>
     <app-next-onglets-content tabTitle="Config">
-        <app-fhirhub-config [dataTab]="tabActive" (changeTitle)="changeTitleFhirService($event)" (showBtnSuppr)="showBtnSuppr()" ></app-fhirhub-config>
+        <app-fhirhub-config [dataTab]="tabActive" (changeTitle)="changeTitle($event)" (showBtnSuppr)="showBtnSuppr()" [actionButton]="actionButton.asObservable()" ></app-fhirhub-config>
     </app-next-onglets-content>
 </app-next-onglets>
 </app-next-panel>

@@ -37,25 +37,24 @@
             <h2>Intéractions :</h2>
             <div class="test">
                 <div *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">
-                    {{interaction.name}}
+                    <p>{{interaction.name}}</p>
                     <fa-icon class="next-icon" [icon]="interaction.icon"></fa-icon>
                 </div>
             </div>
-            <!--<p *ngFor="let interaction of listServiceDetails[0].interactions; let i = index">
-                {{interaction.name}}
-                <fa-icon class="next-icon" [icon]="interaction.icon"></fa-icon>
-            </p>-->
         </div>
     </div>
-    <button (click)="showUsualParams()">Affiche les paramètres usuels</button>
+    <h2>Paramètres :</h2>
+    <div class="containButtonParam">
+        <button (click)="showUsualParams($event)" class="btn btn-primary btnParamsUsuel">{{buttonParamsText}}</button>
+    </div>
     <app-next-liste *ngIf="listServiceDetailsParams.length > 0; else elseBlock2" >
         <app-next-ligne *ngFor="let param of listServiceDetailsParams; let i = index">
-            <div class="row">
-                <p class="col-md-3">{{param.name}} ({{param.type}})</p>
-                <p class="col-md-9" [innerHTML]="param.label"></p>
+            <div class="row paramContain">
+                <p class="col-md-4">{{param.name}} ({{param.type}})</p>
+                <p class="col-md-8" [innerHTML]="param.label"></p>
             </div>
-            <div *ngIf="detailParamsActive">
-                Nous sommes les params
+            <div *ngIf="detailParamsActive" class="paramUsuel row">
+                <p>Paramètres usuels supplémentaire </p>
             </div>
         </app-next-ligne>
     </app-next-liste>

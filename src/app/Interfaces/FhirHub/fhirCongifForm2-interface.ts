@@ -4,12 +4,12 @@ export interface FhirConfigForm2Interface {
     adresseEndpointDMP: string,
     adresseEndpointMSS: string,
     OIDRacineDMP: string,
-    gestion: string,
+    gestion: boolean,
     age: number,
     ageMini: number,
     reevaluation: number,
-    confidentialite: string[],
+    confidentialite: boolean[],
     confidentialiteLabel: string[],
-    automatisation: string[],
+    automatisation: boolean[],
     automatisationLabel: string[]
 }

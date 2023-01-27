@@ -27,39 +27,39 @@
         </app-next-ligne>
     </app-next-liste>
 </section>
-<section *ngSwitchCase="3" id="formConfig">
-    <form action="">
+<section *ngSwitchCase="3" id="formConfig" (actionButton)="test($event)">
+    <form [formGroup]="form1" (ngSubmit)="onSubmit1()">
         <div class="row">
-            <label class="col-md-2" for="">OID</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.oid">
+            <label class="col-md-2" for="oid">OID</label>
+            <input class="col-md-9 offset-md-1" type="text" id="oid" formControlName="oid">
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Adresse du Endpoint</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.adresse">
+            <label class="col-md-2" for="adresse">Adresse du Endpoint</label>
+            <input class="col-md-9 offset-md-1" type="text" id="adresse" formControlName="adresse">
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Ficher Readme</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.readme">
+            <label class="col-md-2" for="readme">Ficher Readme</label>
+            <input class="col-md-9 offset-md-1" type="text" id="readme" formControlName="readme">
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Fichier Index</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.index">
+            <label class="col-md-2" for="index">Fichier Index</label>
+            <input class="col-md-9 offset-md-1" type="text" id="index" formControlName="index">
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Boîtes mail</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.mails">
+            <label class="col-md-2" for="mails">Boîtes mail</label>
+            <input class="col-md-9 offset-md-1" type="text" id="mails" formControlName="mails">
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Nom de l'auteur des messages</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.auteur">
+            <label class="col-md-2" for="auteur">Nom de l'auteur des messages</label>
+            <input class="col-md-9 offset-md-1" type="text" id="auteur" formControlName="auteur">
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Mail de l'auteur des messages</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.mail">
+            <label class="col-md-2" for="mail">Mail de l'auteur des messages</label>
+            <input class="col-md-9 offset-md-1" type="text" id="mail" formControlName="mail">
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Emetteur (GED)</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.emetteur">
+            <label class="col-md-2" for="emetteur">Emetteur (GED)</label>
+            <input class="col-md-9 offset-md-1" type="text" id="emetteur" formControlName="emetteur">
         </div>
         <div class="row">
             <label class="col-md-2" for="">Le certificat est présent, les données ne seront modifiées que si elles sont renseignées, Certificat</label>
@@ -68,56 +68,58 @@
             </div>
         </div>
         <div class="row">
-            <label class="col-md-2" for="">Mot de passe</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig.mdp">
+            <label class="col-md-2" for="mdp">Mot de passe</label>
+            <input class="col-md-9 offset-md-1" type="text" id="mdp" formControlName="mdp">
         </div>
-    </form>
+
+        <button type="submit" [disabled]="!form1.valid">Submit</button>
+      </form>
 </section>
 <section *ngSwitchCase="4" id="formConfig2">
     <h1>Configuration DMP ({{ oneConfig.name }})</h1>
-    <form action="">
-        <div>
-            <label class="col-md-2" for="">Adresse du endpoint</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.adresseEndpoint">
+    <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
+        <div class="row">
+            <label class="col-md-2" for="adresseEndpoint">Adresse du endpoint</label>
+            <input class="col-md-9 offset-md-1" id="adresseEndpoint" formControlName="adresseEndpoint">
         </div>
         <div>
-            <label class="col-md-2" class="col-md-2" for="">Adresse du Endpoint DMP</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.adresseEndpointDMP">
+            <label class="col-md-2" class="col-md-2" for="adresseEndpointDMP">Adresse du Endpoint DMP</label>
+            <input class="col-md-9 offset-md-1" type="text" id="adresseEndpointDMP" formControlName="adresseEndpointDMP">
         </div>
         <div>
-            <label class="col-md-2" for="">Adresse du Endpoint MSS</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.adresseEndpointMSS">
+            <label class="col-md-2" for="adresseEndpointMSS">Adresse du Endpoint MSS</label>
+            <input class="col-md-9 offset-md-1" type="text" id="adresseEndpointMSS" formControlName="adresseEndpointMSS">
         </div>
         <div>
-            <label class="col-md-2" for="">OID racine DMP</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.OIDRacineDMP">
+            <label class="col-md-2" for="OIDRacineDMP">OID racine DMP</label>
+            <input class="col-md-9 offset-md-1" type="text" id="OIDRacineDMP" formControlName="OIDRacineDMP">
         </div>
         <div>
-            <label class="col-md-2" for="">Gestion des mineurs</label>
+            <label class="col-md-2" for="gestion">Gestion des mineurs</label>
             <div class="col-md-9 offset-md-1">
                 <div class="contain-check">
-                    <input id="mineur" type="checkbox" [checked]="formConfig2.gestion">
-                    <label for="mineur">Proposer la connexion secrète</label>
+                    <input id="gestion" type="checkbox" id="gestion" formControlName="gestion">
+                    <label for="gestion">Proposer la connexion secrète</label>
                 </div>
             </div>
         </div>
         <div>
-            <label class="col-md-2" for="">Age de la majorité</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.age">
+            <label class="col-md-2" for="age">Age de la majorité</label>
+            <input class="col-md-9 offset-md-1" type="number" id="age" formControlName="age">
         </div>
         <div>
-            <label class="col-md-2" for="">Age minimal pour la connexion secrète</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.ageMini">
+            <label class="col-md-2" for="ageMini">Age minimal pour la connexion secrète</label>
+            <input class="col-md-9 offset-md-1" type="number" id="ageMini" formControlName="ageMini">
         </div>
         <div>
-            <label class="col-md-2" for="">Réévaluation de la connexion secrète</label>
-            <input class="col-md-9 offset-md-1" type="text" [value]="formConfig2.reevaluation">
+            <label class="col-md-2" for="reevaluation">Réévaluation de la connexion secrète</label>
+            <input class="col-md-9 offset-md-1" type="text" id="reevaluation" formControlName="reevaluation">
         </div>
         <div>
             <label class="col-md-2" for="">Confidentialité</label>
             <div class="col-md-9 offset-md-1">
                 <div class="contain-check" *ngFor="let item of formConfig2.confidentialite; let i = index ">
-                    <input type="checkbox" [checked]="item[i]" [id]="'confidentiel'+i">
+                    <input type="checkbox" [id]="'confidentiel'+i">
                     <label [for]="'confidentiel'+i">{{formConfig2.confidentialiteLabel[i]}}</label>
                 </div>
             </div>
@@ -126,11 +128,13 @@
             <label class="col-md-2" for="">Automatisation</label>
             <div class="col-md-9 offset-md-1">
                 <div class="contain-check" *ngFor="let item of formConfig2.automatisation; let i = index ">
-                    <input type="checkbox" [checked]="item[i]" [id]="'auto'+i">
+                    <input type="checkbox" [id]="'auto'+i">
                     <label [for]="'auto'+i">{{formConfig2.automatisationLabel[i]}}</label>
                 </div>
             </div>
         </div>
-    </form>
+
+        <button type="submit" [disabled]="!form2.valid">Submit</button>
+      </form>
 </section>
 </ng-container>

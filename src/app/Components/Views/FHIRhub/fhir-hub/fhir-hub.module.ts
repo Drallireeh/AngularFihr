@@ -7,6 +7,7 @@ import { FhirhubServicesComponent } from '../fhirhub-services/fhirhub-services.c
 import { FhirhubTransactionComponent } from '../fhirhub-transaction/fhirhub-transaction.component';
 import { NextModule } from '../../../Next/next.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     CommonModule,
     NextModule,
     FontAwesomeModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ReactiveFormsModule
   ]
 })
 export class FHIRhubModule { }

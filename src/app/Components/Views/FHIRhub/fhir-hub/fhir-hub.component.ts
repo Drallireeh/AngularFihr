@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -8,10 +8,17 @@ import { Subject } from 'rxjs';
 })
 export class FHIRhubComponent implements OnInit {
 
+  // Liste des variables d'affichage
   config:boolean = false;
   configForm:boolean = false;
   tabActive!:string;
 
+  // Emit les évènements liés aux boutons d'actions du panel heading
+	@Input() actionButtons = new EventEmitter<string>();
+
+  actionButton: Subject<string> = new Subject<string>();
+
+  // Titre du panel
   FHIRTitle:string = "LISTE DES SERVEURS FHIR REST";
   
   constructor() { }
@@ -19,6 +26,7 @@ export class FHIRhubComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Fonction de changement d'onglet au clic
   changeTab(tab: any): void {
     this.tabActive = tab;
     this.configForm = false;
@@ -28,22 +36,31 @@ export class FHIRhubComponent implements OnInit {
     else {
       this.config = false;
     }
+    // Changement du titre du tab
     if(tab == "Services"){
-      this.FHIRTitle = "LISTE DES SERVEURS FHIR REST"
+      this.changeTitle("LISTE DES SERVEURS FHIR REST")
     }
     else if(tab == "Config"){
-      this.FHIRTitle = "LISTE DES ETABLISSEMENTS"
+      this.changeTitle("LISTE DES ETABLISSEMENTS")
     }
     else if(tab == "Transaction"){
-      this.FHIRTitle = "LISTE DES TRANSACTIONS HL7"
+      this.changeTitle("LISTE DES TRANSACTIONS HL7")
     }
   }
 
+  // Affiche le bouton de suppression à l'ouverture de l'onglet de config 
   showBtnSuppr(): void {
     this.configForm = true;
   }
 
-  changeTitleFhirService(title: string): void {
+  // Modifie le titre du panel
+  changeTitle(title: string): void {
     this.FHIRTitle = title;
   }
+
+  // Emit l'action des boutons
+  emitActionButton(emitTitle: string) {
+    this.actionButton.next(emitTitle);
+  }
+   
 }

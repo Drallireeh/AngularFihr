@@ -15,5 +15,8 @@ export class NextPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  test(string:any){
+    console.log(string)
+  }
   
 }

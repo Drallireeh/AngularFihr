@@ -14,6 +14,7 @@ import { InfiniteScrollScript } from 'src/app/Script/infiniteScroll'
 })
 export class FhirhubServicesComponent implements OnInit {
 
+  // Init l'infinite scroll
   infiniteScript: any = InfiniteScrollScript;
  
   // Liste des datas
@@ -25,13 +26,16 @@ export class FhirhubServicesComponent implements OnInit {
   // Liste des booléens d'affichage
   details: boolean = false;
   detailParamsActive:boolean = false;
+  buttonParamsText: string = "Affiche les paramètres usuels"
 
   // Liste des variables pour le scroll infini
   indexParams = 0;
 
+  // Récupération des données des composants parents et enfants
   @Input() dataTab!: string;
   @Output() changeTitle = new EventEmitter<string>();
 
+  // Connection à l'évent de scroll Infini pour rechager des datas
   constructor(private FhirServiceData: FhirServiceService, private test: PanelService) {
     this.test.scrollPanel.subscribe((data) => {
       if(data == "Services" && this.details == true){
@@ -40,9 +44,11 @@ export class FhirhubServicesComponent implements OnInit {
   })
    }
   ngOnInit(): void {
+    // Init le premier appel de services
     this.getFhirService();
   }
 
+  // Au changement de tab reset les datas et l'element affiché
   ngOnChanges(changes: SimpleChanges) {
     let change: SimpleChange = changes['dataTab']; 
 
@@ -51,10 +57,12 @@ export class FhirhubServicesComponent implements OnInit {
     this.listServiceDetailsParams = [];
   }
 
+  // Récupère la liste de services
   getFhirService(): void {
 		this.FhirServiceData.getFHIRService().subscribe(services => this.listServices = services);
 	}
 
+  // Récupère toutes les informations d'un service
   getServiceDetail(nameService:string, index:number, number:number): void {
     this.FhirServiceData.getFhirServiceDetail().subscribe(services => this.listServiceDetails = services);
     this.FhirServiceData.getFhirServiceDetailParams(index, number).subscribe(servicesParams => this.listServiceDetailsParamsData = servicesParams);
@@ -65,6 +73,7 @@ export class FhirhubServicesComponent implements OnInit {
     this.changeTitle.emit(`DETAIL DU SERVICE FHIR ${nameService}`);
   }
 
+  // Rajoute des données dans le tableau de service par tranche de 10 selon le scroll 
   addServiceDetails(index: number, number: number): void {
     for(let i = index; i < number + index; i++){
       if(this.listServiceDetailsParamsData[i]){
@@ -75,6 +84,7 @@ export class FhirhubServicesComponent implements OnInit {
         return;
       }
     }
+    // Timeout pour faire passer le calcul de height en bas de la pile en attendant de recevoir les datas via des requêtes ajax
     setTimeout(() => {
       var ctnGlobal:any = document.getElementById('Services');
       var ctn:any = document.getElementById('SerivcesOnglet');
@@ -84,12 +94,15 @@ export class FhirhubServicesComponent implements OnInit {
     }, 0)
   }
 
+  // Fonction de fin de scroll
   onScrollDown(): void {
     this.addServiceDetails(this.indexParams, 10)
   }
 
-  showUsualParams(): void {
+  // Affiche les paramètres usuels + reset le tableau de données
+  showUsualParams(event: any): void {
     this.detailParamsActive = !this.detailParamsActive;
+    this.detailParamsActive ? event.target.innerText="Cache les paramètres usuels" : event.target.innerText="Affiche les paramètres usuels";
     this.indexParams = 0;
     this.listServiceDetailsParams = [];
     this.addServiceDetails(this.indexParams, 10);

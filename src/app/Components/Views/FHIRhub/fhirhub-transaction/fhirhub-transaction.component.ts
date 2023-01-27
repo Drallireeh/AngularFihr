@@ -18,6 +18,7 @@ export class FhirhubTransactionComponent implements OnInit {
     this.getFhirService();
   }
 
+  // Récupère les transactions
   getFhirService(): void {
 		this.FhirTransactionData.getFHIRTransaction().subscribe(transactions => this.listTransactions = transactions);
 	}
