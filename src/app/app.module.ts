@@ -10,11 +10,13 @@ import { StaticsModule } from './Components/Statics/statics.module';
 import { NextModule } from './Components/Next/next.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewsModule } from './Components/Views/views.module';
+import { LoginComponent } from './login/login/login.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
+  LoginComponent,
 	],
 	imports: [
 		CommonModule,
