@@ -10,13 +10,14 @@ import { StaticsModule } from './Components/Statics/statics.module';
 import { NextModule } from './Components/Next/next.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewsModule } from './Components/Views/views.module';
-import { LoginComponent } from './login/login/login.component';
+
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // enables the application to communicate with the backend services
+import { AuthInterceptorService } from './Services/auth-interceptor.service';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
-  LoginComponent,
 	],
 	imports: [
 		CommonModule,
@@ -27,7 +28,11 @@ import { LoginComponent } from './login/login/login.component';
 		ViewsModule,
 		BrowserAnimationsModule,
 		FontAwesomeModule,
+		HttpClientModule
 	],
+	providers: [
+		{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+	  ],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
