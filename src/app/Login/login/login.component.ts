@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
@@ -10,7 +10,8 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class LoginComponent {
 	form: FormGroup;
 
-	readonly API_URL = 'http://localhost:3000';
+	readonly API_URL = 'http://localhost:5095';
+	bearer: string = "";
 
 	constructor(
 		private fb: FormBuilder, private http: HttpClient
@@ -22,11 +23,12 @@ export class LoginComponent {
 	}
 
 	signIn() {
-		this.http.get(this.API_URL + '/token/sign')
+		this.http.post(this.API_URL + '/security/createToken', { userName: "joydip", password: "joydip123" })
 			.subscribe(
 				(res: any) => {
 					console.log(res);
 					if (res['token']) {
+						this.bearer = res['token'];
 						localStorage.setItem('token', res['token']); //token here is stored in a local storage
 					}
 				},
@@ -37,14 +39,18 @@ export class LoginComponent {
 	}
 
 	getPath() {
-		this.http.get(this.API_URL + '/path1') //path1 is then requested    
-			.subscribe(
-				(res) => {
-					console.log(res);
-				},
-				(err) => {
-					console.log(err);
-				}
-			);
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${this.bearer}`,
+		});
+
+		return this.http.get(this.API_URL + '/security/connect', { headers: headers }).subscribe(
+			(res) => {
+				console.log(res);
+			},
+			(err) => {
+				console.log(err);
+			}
+		);
 	}
 }
