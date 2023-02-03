@@ -1,41 +1,46 @@
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.less']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 	form: FormGroup;
 
 	readonly API_URL = 'http://localhost:5095';
 	bearer: string = "";
 
 	constructor(
-		private fb: FormBuilder, private http: HttpClient
+		private readonly http: HttpClient, private readonly router: Router
 	) {
-		this.form = this.fb.group({
-			email: ['', Validators.required],
-			password: ['', Validators.required]
+	}
+
+	ngOnInit() {
+		this.form = new FormGroup({
+			username: new FormControl(""),
+			password: new FormControl("")
 		});
 	}
 
-	signIn() {
-		this.http.post(this.API_URL + '/security/createToken', { userName: "joydip", password: "joydip123" })
-			.subscribe(
-				(res: any) => {
-					console.log(res);
+	signIn(event: Event) {
+		event.preventDefault();
+		this.http.post(this.API_URL + '/security/createToken', { userName: this.form.get("username").value, password: this.form.get("password").value })
+			.subscribe({
+				next: (res: any) => {
 					if (res['token']) {
 						this.bearer = res['token'];
 						localStorage.setItem('token', res['token']); //token here is stored in a local storage
+						this.router.navigate(["/fhirhub"])
 					}
 				},
-				(err: Error) => {
+				error: (err: any) => {
 					console.log(err);
-				}
-			);
+				},
+			})
 	}
 
 	getPath() {

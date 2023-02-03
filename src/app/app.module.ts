@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,14 +9,17 @@ import { StaticsModule } from './Components/Statics/statics.module';
 import { NextModule } from './Components/Next/next.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewsModule } from './Components/Views/views.module';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // enables the application to communicate with the backend services
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
-
+import { LoginModule } from './Login/login/login.module';
 
 @NgModule({
 	declarations: [
 		AppComponent,
+		
 	],
 	imports: [
 		CommonModule,
@@ -28,7 +30,8 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
 		ViewsModule,
 		BrowserAnimationsModule,
 		FontAwesomeModule,
-		HttpClientModule
+		HttpClientModule,
+		LoginModule
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
