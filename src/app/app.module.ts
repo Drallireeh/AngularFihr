@@ -15,11 +15,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // enables the application to communicate with the backend services
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
 import { LoginModule } from './Login/login/login.module';
+import { NgxsModule } from '@ngxs/store';
+import { UserState } from './StateMachine/user.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		
 	],
 	imports: [
 		CommonModule,
@@ -31,7 +34,11 @@ import { LoginModule } from './Login/login/login.module';
 		BrowserAnimationsModule,
 		FontAwesomeModule,
 		HttpClientModule,
-		LoginModule
+		LoginModule,
+		NgxsModule.forRoot([], {developmentMode: true }),
+		NgxsModule.forFeature([UserState]),
+		NgxsStoragePluginModule.forRoot(),
+		NgxsReduxDevtoolsPluginModule.forRoot(),
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
